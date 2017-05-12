@@ -15,6 +15,7 @@ protected: // create from serialization only
 // Attributes
 public:
 	CRoom room;
+	bool first_start;
 // Operations
 public:
 

@@ -193,7 +193,7 @@ void CRoomDesignerApp::OnViewShowgrid()
 {
 	// TODO: Add your command handler code here
 	showgrid = !showgrid;
-	CMenu* menu = GetMainWnd()->GetMenu();
+	GetMainWnd()->GetMenu()->CheckMenuItem(ID_VIEW_SHOWGRID, (showgrid) ? MF_CHECKED : MF_UNCHECKED);
 	// why not work?
-	menu->CheckMenuItem(ID_VIEW_SHOWGRID, showgrid);
+	//menu->CheckMenuItem(ID_VIEW_SHOWGRID, showgrid);
 }

@@ -16,6 +16,7 @@ protected: // create from serialization only
 public:
 	CRoomDesignerDoc* GetDocument() const;
 	bool showgrid;
+	bool showvalues;
 
 	CImage sprite[4];
 
@@ -53,6 +54,7 @@ public:
 	coord clickPos;
 	afx_msg void OnViewShowgrid();
 	afx_msg void OnIdcRemove();
+	afx_msg void OnViewShowvalues();
 };
 
 #ifndef _DEBUG  // debug version in RoomDesignerView.cpp

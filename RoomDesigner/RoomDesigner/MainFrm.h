@@ -13,7 +13,6 @@ protected: // create from serialization only
 
 // Attributes
 public:
-
 // Operations
 public:
 
@@ -38,6 +37,7 @@ protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	DECLARE_MESSAGE_MAP()
 
+public:
 };
 
 

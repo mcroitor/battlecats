@@ -31,6 +31,7 @@ END_MESSAGE_MAP()
 CRoomDesignerDoc::CRoomDesignerDoc()
 {
 	// TODO: add one-time construction code here
+	first_start = true;
 
 }
 
@@ -45,10 +46,13 @@ BOOL CRoomDesignerDoc::OnNewDocument()
 
 	// TODO: add reinitialization code here
 	// (SDI documents will reuse this document)
-	CInitRoomDlg dlg;
-	if (dlg.DoModal() == IDOK){
-		room = CRoom(dlg.width, dlg.height);
+	if (first_start == false){
+		CInitRoomDlg dlg;
+		if (dlg.DoModal() == IDOK){
+			room = CRoom(dlg.width, dlg.height);
+		}
 	}
+	first_start = false;
 	return TRUE;
 }
 

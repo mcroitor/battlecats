@@ -36,6 +36,7 @@ BEGIN_MESSAGE_MAP(CRoomDesignerView, CView)
 	ON_COMMAND(ID_CONTEXT_ADDBASKET, &CRoomDesignerView::OnContextAddbasket)
 	ON_COMMAND(ID_VIEW_SHOWGRID, &CRoomDesignerView::OnViewShowgrid)
 	ON_COMMAND(ID_IDC_REMOVE, &CRoomDesignerView::OnIdcRemove)
+	ON_COMMAND(ID_VIEW_SHOWVALUES, &CRoomDesignerView::OnViewShowvalues)
 END_MESSAGE_MAP()
 
 // CRoomDesignerView construction/destruction
@@ -48,6 +49,7 @@ CRoomDesignerView::CRoomDesignerView()
 	sprite[FISH].Load(L"images32/fish32.png");
 	sprite[BASKET].Load(L"images32/bed32.png");
 	showgrid = true;
+	showvalues = true;
 }
 
 CRoomDesignerView::~CRoomDesignerView()
@@ -94,6 +96,14 @@ void CRoomDesignerView::OnDraw(CDC* pDC)
 		for (i = 1; i != room.height; ++i){
 			pDC->MoveTo(0, i * ih);
 			pDC->LineTo(room.width * iw, i * ih);
+		}
+	}
+	if (showvalues){
+		for (i = 0; i != room.plates.GetSize(); ++i){
+			CPlate& plate = room.plates.GetAt(i);
+			CString text;
+			text.Format(L"%d", plate.num_fish);
+			pDC->TextOut(plate.position.col * iw, plate.position.row * ih, text);
 		}
 	}
 
@@ -272,5 +282,13 @@ void CRoomDesignerView::OnIdcRemove()
 			}
 		}
 	}
+	RedrawWindow();
+}
+
+
+void CRoomDesignerView::OnViewShowvalues()
+{
+	// TODO: Add your command handler code here
+	showvalues = !showvalues;
 	RedrawWindow();
 }

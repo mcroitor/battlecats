@@ -4,7 +4,7 @@
 
 
 #pragma once
-#include "Room.h"
+#include "..\libroom\Room.h"
 
 class CRoomDesignerDoc : public CDocument
 {

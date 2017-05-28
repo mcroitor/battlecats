@@ -3,7 +3,7 @@
 //
 
 #pragma once
-#include "Room.h"
+#include "..\libroom\Room.h"
 
 
 class CRoomDesignerView : public CView

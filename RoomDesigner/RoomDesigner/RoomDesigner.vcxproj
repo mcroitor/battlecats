@@ -83,6 +83,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>$(OutDir)\libroom.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -104,7 +105,6 @@
     <ClInclude Include="InitRoomDlg.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="Room.h" />
     <ClInclude Include="RoomDesigner.h" />
     <ClInclude Include="RoomDesignerDoc.h" />
     <ClInclude Include="RoomDesignerView.h" />
@@ -116,7 +116,6 @@
     <ClCompile Include="AddPlateDlg.cpp" />
     <ClCompile Include="InitRoomDlg.cpp" />
     <ClCompile Include="MainFrm.cpp" />
-    <ClCompile Include="Room.cpp" />
     <ClCompile Include="RoomDesigner.cpp" />
     <ClCompile Include="RoomDesignerDoc.cpp" />
     <ClCompile Include="RoomDesignerView.cpp" />

@@ -1,5 +1,6 @@
-﻿Build started 30.05.2017 17:28:38.
-
-Build succeeded.
-
-Time Elapsed 00:00:00.01
+﻿  icat.cpp
+  Generating code
+  All 84 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  libicat.vcxproj -> C:\Users\dcadea\VSProjects\battlecats\RoomDesigner\Release\libicat.dll
+  libicat.vcxproj -> C:\Users\dcadea\VSProjects\battlecats\RoomDesigner\Release\libicat.pdb (Full PDB)

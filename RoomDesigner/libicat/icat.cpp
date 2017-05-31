@@ -48,9 +48,9 @@ GoToAction::GoToAction(ICat* cat, const Object* object) : ComposedAction(cat) {
 	this->push_back(new MoveAction(cat, dist));
 }
 
-GoToSleepAction::GoToSleepAction(ICat* cat, const beds_type& type) : ComposedAction(cat) {
+GoToSleepAction::GoToSleepAction(ICat* cat, const beds_type& beds) : ComposedAction(cat) {
 	// detect nearest bed
-	CBasket* bed = *std::min_element(type.begin(), type.end(), by_distance(cat));
+	CBasket* bed = *std::min_element(beds.begin(), beds.end(), by_distance(cat));
 	// move to
 	GoToAction(cat, bed);
 	// sleep

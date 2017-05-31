@@ -15,7 +15,7 @@ const CatConfig IAction::catConfig() const { return _cat->getConfig(); }
 
 // action constructors
 IAction::IAction(ICat* cat) : _cat(cat) {}
-MoveAction::MoveAction(ICat* cat, distance_type type) : IAction(cat) { _distance = type; }
+MoveAction::MoveAction(ICat* cat, distance_type dist) : IAction(cat) { _distance = dist; }
 EatAction::EatAction(ICat* cat) : IAction(cat) {}
 SleepAction::SleepAction(ICat* cat) : IAction(cat) {}
 ComposedAction::ComposedAction(ICat* cat) : IAction(cat) {}
@@ -48,7 +48,7 @@ GoToAction::GoToAction(ICat* cat, const Object* object) : ComposedAction(cat) {
 	this->push_back(new MoveAction(cat, dist));
 }
 
-GoToSleepAction::GoToSleepAction(ICat* cat, const beds_type& beds) : ComposedAction(cat) {
+GoToSleepAction::GoToSleepAction(ICat* cat, beds_type beds) : ComposedAction(cat) {
 	// detect nearest bed
 	CBasket* bed = *std::min_element(beds.begin(), beds.end(), by_distance(cat));
 	// move to

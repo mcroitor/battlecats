@@ -2,23 +2,24 @@
 #define ICAT_H
 
 #include <string>
-#include <vector>
+#include <deque>
+#include "..\libroom\Room.h"
 
 class	ICat;
 class	IAction;
 struct	coord;
-struct	CRoom;
+//struct	CRoom;
 struct	CPlate;
 struct	CBasket;
 struct	CatConfig;
 
-typedef std::vector<IAction*>	actions_type;
+typedef std::deque<IAction*>	actions_type;
 typedef actions_type::iterator	actions_iterator;
-typedef std::vector<CPlate*>	plates_type;
+typedef std::deque<CPlate*>	plates_type;
 typedef plates_type::iterator	plates_iterator;
-typedef std::vector<ICat*>		cats_type;
+typedef std::deque<ICat*>		cats_type;
 typedef cats_type::iterator		cats_iterator;
-typedef std::vector<CBasket*>	beds_type;
+typedef std::deque<CBasket*>	beds_type;
 typedef beds_type::iterator		beds_iterator;
 typedef double					distance_type;
 
@@ -34,7 +35,7 @@ struct coord {
 	size_t x, y;
 };
 
-struct CRoom {};
+//struct CRoom {};
 
 struct Object {
 	coord position;
@@ -100,7 +101,7 @@ struct GoToAction : public ComposedAction {
 };
 
 struct GoToSleepAction : public ComposedAction {
-	GoToSleepAction(ICat* /*cat*/, const beds_type& /*type*/);
+	GoToSleepAction(ICat* /*cat*/, beds_type /*beds*/);
 };
 
 /* An interface for Cat. */
@@ -117,7 +118,7 @@ public:
 	virtual const size_t stomachIsFull() const final;
 	virtual const distance_type distance(coord /*p*/) const final;
 	virtual CatConfig getConfig() const final;
-
+	virtual const CRoom* getRoom() const final;
 	virtual IAction* Next(IAction* /*action*/) = 0;
 };
 

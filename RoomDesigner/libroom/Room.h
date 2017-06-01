@@ -1,5 +1,6 @@
 #pragma once
 #include "afx.h"
+#include "iroom.h"
 #include <afxwin.h> 
 
 class ICat;
@@ -46,15 +47,18 @@ public:
 };
 
 class __declspec(dllexport) CRoom :
-	public CObject
+	public CObject, IRoom
 {
+	CArray<CPlate> _plates;
+	CArray<CBasket> _sleeps;
+	CArray<ICat*> _cats;
 public:
 	size_t width, height;
-	CArray<CPlate> plates;
-	CArray<CBasket> sleeps;
-	CArray<ICat*> cats;
-	DECLARE_SERIAL(CRoom);
 
+	DECLARE_SERIAL(CRoom);
+	virtual plates_type plates() const;
+	virtual cats_type cats() const;
+	virtual baskets_type baskets() const;
 	CRoom();
 	CRoom(size_t, size_t);
 	CRoom& operator = (const CRoom&);

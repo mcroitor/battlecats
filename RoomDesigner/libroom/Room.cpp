@@ -69,13 +69,31 @@ CRoom::CRoom(size_t w, size_t h)
 	height = h;
 }
 
+plates_type CRoom::plates() const {
+	plates_type tmp;
+	for (size_t i = 0; i != _plates.GetSize(); ++i) {
+		tmp.push_back(_plates[i]);
+	}
+	return tmp;
+}
+cats_type CRoom::cats() const {
+	cats_type tmp;
+	for (size_t i = 0; i != _cats.GetSize(); ++i) {
+		tmp.push_back(_cats[i]);
+	}
+	return tmp;
+}
+baskets_type CRoom::baskets() const {
+
+}
+
 CRoom& CRoom::operator = (const CRoom& r){
 	width = r.width;
 	height = r.height;
-	this->plates.RemoveAll();
-	this->sleeps.RemoveAll();
-	this->plates.Copy(r.plates);
-	this->sleeps.Copy(r.sleeps);
+	this->_plates.RemoveAll();
+	this->_sleeps.RemoveAll();
+	this->_plates.Copy(r._plates);
+	this->_sleeps.Copy(r._sleeps);
 	return *this;
 }
 
@@ -86,8 +104,8 @@ void CRoom::Serialize(CArchive& ar){
 	else{
 		ar >> this->width >> this->height;
 	}
-	plates.Serialize(ar);
-	sleeps.Serialize(ar);
+	_plates.Serialize(ar);
+	_sleeps.Serialize(ar);
 }
 
 CRoom::~CRoom()
@@ -100,9 +118,9 @@ UINT CRoom::at(UINT col, UINT row){
 	tmp.col = col;
 	tmp.row = row;
 	// plates
-	for (i = 0; i != plates.GetSize(); ++i){
-		if (plates[i].position == tmp){
-			if (plates[i].num_fish > 0){
+	for (i = 0; i != _plates.GetSize(); ++i){
+		if (_plates[i].position == tmp){
+			if (_plates[i].num_fish > 0){
 				return FISH;
 			}
 			else{
@@ -111,8 +129,8 @@ UINT CRoom::at(UINT col, UINT row){
 		}
 	}
 	// baskets
-	for (i = 0; i != sleeps.GetSize(); ++i){
-		if (sleeps[i].position == tmp){
+	for (i = 0; i != _sleeps.GetSize(); ++i){
+		if (_sleeps[i].position == tmp){
 			return BASKET;
 		}
 	}

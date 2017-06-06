@@ -99,11 +99,11 @@ void CRoomDesignerView::OnDraw(CDC* pDC)
 		}
 	}
 	if (showvalues){
-		for (i = 0; i != room.plates.GetSize(); ++i){
-			CPlate& plate = room.plates.GetAt(i);
+		for (i = 0; i != room.plates().size(); ++i){
+			CPlate* plate = room.plates().at(i);
 			CString text;
-			text.Format(L"%d", plate.num_fish);
-			pDC->TextOut(plate.position.col * iw, plate.position.row * ih, text);
+			text.Format(L"%d", plate->num_fish);
+			pDC->TextOut(plate->position.col * iw, plate->position.row * ih, text);
 		}
 	}
 
@@ -170,7 +170,7 @@ void CRoomDesignerView::OnEditBasket()
 				continue;
 			}
 			// insert
-			room.sleeps.Add(CBasket(coord(dlg.row, dlg.col)));
+			room.AddBasket(new CBasket(coord(dlg.row, dlg.col)));
 			RedrawWindow();
 		}
 		return;
@@ -194,7 +194,7 @@ void CRoomDesignerView::OnEditPlate()
 				continue;
 			}
 			// insert
-			room.plates.Add(CPlate(coord(dlg.row, dlg.col), dlg.nf));
+			room.AddPlate(new CPlate(coord(dlg.row, dlg.col), dlg.nf));
 			RedrawWindow();
 		}
 		return;
@@ -236,7 +236,7 @@ void CRoomDesignerView::OnContextAddplate()
 	dlg.col = clickPos.col;
 
 	if (dlg.DoModal()){
-		room.plates.Add(CPlate(coord(dlg.row, dlg.col), dlg.nf));
+		room.AddPlate(new CPlate(coord(dlg.row, dlg.col), dlg.nf));
 		RedrawWindow();
 	}
 	RedrawWindow();
@@ -248,7 +248,7 @@ void CRoomDesignerView::OnContextAddbasket()
 	// TODO: Add your command handler code here
 	CRoom& room = this->GetDocument()->room;
 
-	room.sleeps.Add(CBasket(clickPos));
+	room.AddBasket(new CBasket(clickPos));
 	RedrawWindow();
 }
 
@@ -267,17 +267,17 @@ void CRoomDesignerView::OnIdcRemove()
 	CRoom& room = this->GetDocument()->room;
 	UINT type = room.at(clickPos.col, clickPos.row);
 	if (type == BASKET){
-		for (UINT i = 0; i != room.sleeps.GetSize(); ++i){
-			if (room.sleeps[i].position == clickPos){
-				room.sleeps.RemoveAt(i);
+		for (UINT i = 0; i != room.baskets().size(); ++i){
+			if (room.baskets()[i]->position == clickPos){
+				room.RemoveBasket(i);
 				break;
 			}
 		}		
 	}
 	else if (type == PLATE || type == FISH){
-		for (UINT i = 0; i != room.plates.GetSize(); ++i){
-			if (room.plates[i].position == clickPos){
-				room.plates.RemoveAt(i);
+		for (UINT i = 0; i != room.plates().size(); ++i){
+			if (room.plates()[i]->position == clickPos){
+				room.RemovePlate(i);
 				break;
 			}
 		}

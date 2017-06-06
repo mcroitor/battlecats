@@ -3,8 +3,8 @@
 
 // helper methods
 distance_type distance(coord p1, coord p2) {
-	return sqrt((p1.x - p2.x)*(p1.x - p2.x) +
-		(p1.x - p2.x)*(p1.x - p2.x));
+	return sqrt((p1.row - p2.row)*(p1.row - p2.row) +
+		(p1.col - p2.col)*(p1.col - p2.col));
 }
 distance_type distance(Object* object1, Object* object2) {
 	return distance(object1->position, object2->position);
@@ -48,9 +48,9 @@ GoToAction::GoToAction(ICat* cat, const Object* object) : ComposedAction(cat) {
 	this->push_back(new MoveAction(cat, dist));
 }
 
-GoToSleepAction::GoToSleepAction(ICat* cat, beds_type beds) : ComposedAction(cat) {
+GoToSleepAction::GoToSleepAction(ICat* cat) : ComposedAction(cat) {
 	// detect nearest bed
-	CBasket* bed = *std::min_element(beds.begin(), beds.end(), by_distance(cat));
+	CBasket* bed = *std::min_element(cat->getRoom()->baskets().begin(), cat->getRoom()->baskets().end(), by_distance(cat));
 	// move to
 	GoToAction(cat, bed);
 	// sleep
@@ -64,7 +64,11 @@ GoToSleepAction::GoToSleepAction(ICat* cat, beds_type beds) : ComposedAction(cat
 }
 
 CatConfig ICat::getConfig() const { return _cfg; }
-ICat::ICat(const CatConfig& cfg, CRoom* room) {
+const IRoom * ICat::getRoom() const
+{
+	return _room;
+}
+ICat::ICat(const CatConfig& cfg, IRoom* room) {
 	_cfg = cfg;
 	_room = room;
 }
@@ -88,5 +92,5 @@ bool by_distance::operator()(Object* object1, Object* object2) const {
 		distance(_cat->position, object2->position);
 }
 bool by_volume::operator()(CPlate* plate1, CPlate* plate2) const {
-	return plate1->nr_fishes < plate2->nr_fishes;
+	return plate1->num_fish < plate2->num_fish;
 }

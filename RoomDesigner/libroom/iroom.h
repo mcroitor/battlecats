@@ -1,9 +1,9 @@
 #pragma once
 #include <deque>
 
-struct	CPlate;
-struct	CBasket;
-class ICat;
+class	CPlate;
+class	CBasket;
+class	ICat;
 
 typedef std::deque<CPlate*>		plates_type;
 typedef std::deque<ICat*>		cats_type;

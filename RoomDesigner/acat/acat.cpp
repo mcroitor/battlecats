@@ -1,4 +1,5 @@
 #include "acat.h"
+#include <algorithm>
 
 /*
 std::string name;		// pet's name
@@ -17,7 +18,7 @@ const CatConfig config = {
 	10
 };
 
-ACat::ACat(const CatConfig& cfg, CRoom* room): ICat(cfg, room) {
+ACat::ACat(const CatConfig& cfg, IRoom* room): ICat(cfg, room) {
 
 }
 
@@ -28,12 +29,24 @@ IAction* ACat::Next(IAction* action) {
 	// does not exist any action
 	if (action == nullptr) {
 		if (this->stomachIsFull()) {
-			return new GoToSleepAction(this, this->_room->beds());
+			// go to sleep
+			return new GoToSleepAction(this);
+		}
+		else {
+			// where is a plate with more fish?!
+			plates_type plates(this->getRoom()->plates().begin(), this->getRoom()->plates().end());
+			std::sort(plates.begin(), plates.end(), by_volume(this));
+			ComposedAction* composedAction = new ComposedAction(this);
+			// go to this plate
+			composedAction->push_back(new GoToAction(this, plates.front()));
+			// eat from plate
+			composedAction->push_back(new EatAction(this));
+			return composedAction;
 		}
 	}
 	return nullptr;
 }
 
-ICat* createCat(CRoom* room) {
+ICat* createCat(IRoom* room) {
 	return new ACat(::config, room);
 }

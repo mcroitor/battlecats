@@ -15,7 +15,7 @@ Try to create own Battle Cat!
 шаблон проекта (а также простейший пример) представлен в проекте *acat*.
 
 Пример заголовочного файла *acat.h*:
-```
+```C++
 #ifndef MY_KITTEN
 #define MY_KITTEN
 
@@ -34,7 +34,7 @@ extern "C" __declspec(dllexport) ICat* createCat(IRoom* /*room*/);
 #endif
 ```
 Пример реализации котенка (*acat.cpp*)
-```
+```C++
 #include "acat.h"
 #include <algorithm>
 
@@ -80,9 +80,40 @@ ICat* createCat(IRoom* room) {
 ```
 ## описание доступных методов / переменных
 ### Cat Config
-
+```C++
+struct CatConfig {
+	std::string name;		// pet's name
+	std::string author;		// pet's owner
+	size_t stomach_volume;		// stomache volume
+	size_t sleep_speed;		// stomach speed clearing
+	size_t eat_speed;		// stomach speed filling
+	size_t speed;			// kitten's speed
+};
+```
 ### Cat
-
+```C++
+class ICat : public Object {
+	virtual const size_t fishInStomach() const final;
+	virtual const size_t stomachIsFull() const final;
+	virtual const distance_type distance(coord /*p*/) const final;
+	virtual CatConfig getConfig() const final;
+	virtual const IRoom* getRoom() const final;
+	virtual IAction* Next(IAction* /*action*/) = 0;
+};
+```
 ### Room
-
+```C++
+struct IRoom {
+	virtual plates_type plates() const = 0;
+	virtual cats_type cats() const = 0;
+	virtual baskets_type baskets() const = 0;
+};
+```
 ### Actions
+* MoveAction
+* EatAction
+* SleepAction
+* ComposedAction
+* GoToAction
+* GoToSleepAction
+

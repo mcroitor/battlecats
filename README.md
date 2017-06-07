@@ -4,3 +4,85 @@ Is a simulator for testing (or gaming?!) exploring algorithms.
 Idea is taken from GalaxyFX contest (http://ru.jfx.wikia.com/wiki/GalaxyFX).
 
 Try to create own Battle Cat!
+
+## Description (RUS)
+
+Голодные котята захватили комнату!! И каждый из них, стимулируемый своим ЭГО, собирается съесть как можно больше рыбы... Кто окажется победителем в этой борьбе за еду?!
+
+В комнате находятся тарелки с рыбой, корзинки для сна и котята в корзинках. Вам необходимо запрограммировать котенка таким образом, чтобы он ел рыбу, спал... Соревнование проводится между несколькими котятами, побеждает тот котенок, который съедает больше всего рыбы за определенный промежуток времени
+
+## создание проекта
+шаблон проекта (а также простейший пример) представлен в проекте *acat*.
+
+Пример заголовочного файла *acat.h*:
+```
+#ifndef MY_KITTEN
+#define MY_KITTEN
+
+#include ".\libicat\icat.h"
+
+class ACat: public ICat {
+public:
+	ACat(const CatConfig& /*cfg*/, IRoom* /*room*/);
+	virtual IAction* Next(IAction* /*action*/) final;
+};
+
+/*
+ * this is a interface function of dll,  creates a cat
+ */
+extern "C" __declspec(dllexport) ICat* createCat(IRoom* /*room*/);
+#endif
+```
+Пример реализации котенка (*acat.cpp*)
+```
+#include "acat.h"
+#include <algorithm>
+
+const CatConfig config = {
+	"Vas'ka",   // pet's name
+	"Krey",     // pet's owner
+	20,         // stomach volume
+	10,         // stomach speed clearing
+	10,         // stomach speed filling
+	10          // speed, just speed
+};
+
+ACat::ACat(const CatConfig& cfg, IRoom* room): ICat(cfg, room) {}
+
+/*
+  a simple example of Next method realization
+*/
+IAction* ACat::Next(IAction* action) {
+	// does not exist any action
+	if (action == nullptr) {
+		if (this->stomachIsFull()) {
+			// go to sleep
+			return new GoToSleepAction(this);
+		}
+		else {
+			// where is a plate with more fish?!
+			plates_type plates(this->getRoom()->plates().begin(), this->getRoom()->plates().end());
+			std::sort(plates.begin(), plates.end(), by_volume(this));
+			ComposedAction* composedAction = new ComposedAction(this);
+			// go to this plate
+			composedAction->push_back(new GoToAction(this, plates.front()));
+			// eat from plate
+			composedAction->push_back(new EatAction(this));
+			return composedAction;
+		}
+	}
+	return nullptr;
+}
+
+ICat* createCat(IRoom* room) {
+	return new ACat(::config, room);
+}
+```
+## описание доступных методов / переменных
+### Cat Config
+
+### Cat
+
+### Room
+
+### Actions

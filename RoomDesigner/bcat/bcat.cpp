@@ -20,7 +20,7 @@ IAction* BCat::Next(IAction* action) {
 			return new GoToSleepAction(this);
 		}
 		else {
-			plates_type plates(this->getRoom()->plates().begin(), this->getRoom()->plates().end());
+			plates_type plates(this->getRoom()->plates()->begin(), this->getRoom()->plates()->end());
 			std::sort(plates.begin(), plates.end(), by_distance(this));
 
 			ComposedAction* composedAction = new ComposedAction(this);

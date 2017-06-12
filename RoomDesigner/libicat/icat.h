@@ -5,12 +5,12 @@
 #include <deque>
 #include "..\libroom\Room.h"
 
+struct	coord;
+struct	CatConfig;
 class	ICat;
 class	IAction;
-struct	coord;
-struct	CPlate;
-struct	CBasket;
-struct	CatConfig;
+class	CPlate;
+class	CBasket;
 
 typedef std::deque<IAction*>	actions_type;
 typedef double					distance_type;

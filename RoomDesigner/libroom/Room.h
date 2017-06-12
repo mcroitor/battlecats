@@ -3,7 +3,7 @@
 #include "iroom.h"
 #include <afxwin.h> 
 
-#ifndef ICAT_EXPORTS
+#ifndef ICAT_API
 #define ICAT_API __declspec(dllexport)
 #endif
 

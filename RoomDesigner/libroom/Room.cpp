@@ -70,6 +70,9 @@ CRoom::CRoom()
 {
 	width = 20;
 	height = 20;
+	_plates = new plates_type;
+	_cats = new cats_type;
+	_baskets = new baskets_type;
 }
 
 CRoom::CRoom(size_t w, size_t h)

@@ -23,6 +23,14 @@ IAction* BCat::Next(IAction* action) {
 			plates_type plates(this->getRoom()->plates()->begin(), this->getRoom()->plates()->end());
 			std::sort(plates.begin(), plates.end(), by_distance(this));
 
+			while (plates.size() > 0 && plates.front()->num_fish == 0) {
+				plates.pop_front();
+			}
+
+			if (plates.size() == 0) {
+				return new GoToSleepAction(this);
+			}
+
 			ComposedAction* composedAction = new ComposedAction(this);
 			composedAction->push_back(new GoToAction(this, plates.front()));
 			composedAction->push_back(new EatAction(this));

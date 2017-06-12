@@ -5,12 +5,16 @@
 #include <deque>
 #include "..\libroom\Room.h"
 
+#ifndef ICAT_API
+#define ICAT_API __declspec(dllexport)
+#endif
+
+struct	coord;
+struct	CatConfig;
 class	ICat;
 class	IAction;
-struct	coord;
-struct	CPlate;
-struct	CBasket;
-struct	CatConfig;
+class	CPlate;
+class	CBasket;
 
 typedef std::deque<IAction*>	actions_type;
 typedef double					distance_type;
@@ -39,12 +43,12 @@ public:
 	IAction(ICat* /*cat*/);
 	virtual ACTION_T type() const = 0;
 protected:
-	virtual const CatConfig catConfig() const final;
+	virtual ICAT_API const CatConfig catConfig() const final;
 	ICat* _cat;
 };
 
 // move action
-struct MoveAction : public IAction {
+struct ICAT_API MoveAction : public IAction {
 	MoveAction(ICat* /*cat*/, distance_type /*type*/);
 	virtual ACTION_T type() const override final;
 	distance_type distance() const;
@@ -53,18 +57,18 @@ protected:
 	distance_type _distance;
 };
 
-struct EatAction : IAction {
+struct ICAT_API EatAction : IAction {
 	EatAction(ICat* /*cat*/);
 	virtual ACTION_T type() const override final;
 };
 
-struct SleepAction : IAction {
+struct ICAT_API SleepAction : IAction {
 	SleepAction(ICat* /*cat*/);
 	virtual ACTION_T type() const override final;
 	virtual void sleep() const final;
 };
 
-struct ComposedAction : IAction {
+struct ICAT_API ComposedAction : IAction {
 	ComposedAction(ICat* /*cat*/);
 	virtual ACTION_T type() const override final;
 	const actions_type& actions() const;
@@ -73,16 +77,16 @@ protected:
 	actions_type _actions;
 };
 
-struct GoToAction : public ComposedAction {
+struct ICAT_API GoToAction : public ComposedAction {
 	GoToAction(ICat* /*cat*/, const Object* /*object*/);
 };
 
-struct GoToSleepAction : public ComposedAction {
+struct ICAT_API GoToSleepAction : public ComposedAction {
 	GoToSleepAction(ICat* /*cat*/);
 };
 
 /* An interface for Cat. */
-class ICat : public Object {
+class ICAT_API ICat : public Object {
 protected:
 	CatConfig	_cfg;
 	size_t		_eated_fishes;
@@ -100,14 +104,14 @@ public:
 };
 
 /* functors for sorting */
-struct by_distance {
+struct ICAT_API by_distance {
 	ICat* _cat;
 	by_distance(ICat* /*cat*/);
 	bool operator()(Object* /*object1*/, Object* /*object2*/) const;
 
 };
 
-struct by_volume {
+struct ICAT_API by_volume {
 	ICat* _cat;
 	by_volume(ICat* /*cat*/);
 	bool operator()(CPlate* /*plate1*/, CPlate* /*plate2*/) const;

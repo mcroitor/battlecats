@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RoomDesigner", "RoomDesigner\RoomDesigner.vcxproj", "{D4E4B305-ABF4-4339-A986-C673BDDC2511}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -22,6 +22,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acat", "acat\acat.vcxproj",
 	ProjectSection(ProjectDependencies) = postProject
 		{7B4E1E4B-40C0-4781-8812-08AC4E19C8A4} = {7B4E1E4B-40C0-4781-8812-08AC4E19C8A4}
 	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bcat", "bcat\bcat.vcxproj", "{A5154B63-7F50-4CBD-B276-FC3008E416FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,14 @@ Global
 		{2EC8A0B4-1645-4E11-9B9C-78A6D70D1E37}.Release|Win32.Build.0 = Release|Win32
 		{2EC8A0B4-1645-4E11-9B9C-78A6D70D1E37}.Release|x64.ActiveCfg = Release|x64
 		{2EC8A0B4-1645-4E11-9B9C-78A6D70D1E37}.Release|x64.Build.0 = Release|x64
+		{A5154B63-7F50-4CBD-B276-FC3008E416FC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A5154B63-7F50-4CBD-B276-FC3008E416FC}.Debug|Win32.Build.0 = Debug|Win32
+		{A5154B63-7F50-4CBD-B276-FC3008E416FC}.Debug|x64.ActiveCfg = Debug|x64
+		{A5154B63-7F50-4CBD-B276-FC3008E416FC}.Debug|x64.Build.0 = Debug|x64
+		{A5154B63-7F50-4CBD-B276-FC3008E416FC}.Release|Win32.ActiveCfg = Release|Win32
+		{A5154B63-7F50-4CBD-B276-FC3008E416FC}.Release|Win32.Build.0 = Release|Win32
+		{A5154B63-7F50-4CBD-B276-FC3008E416FC}.Release|x64.ActiveCfg = Release|x64
+		{A5154B63-7F50-4CBD-B276-FC3008E416FC}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

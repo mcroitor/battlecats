@@ -3,6 +3,10 @@
 #include "iroom.h"
 #include <afxwin.h> 
 
+#ifndef ICAT_API
+#define ICAT_API __declspec(dllexport)
+#endif
+
 enum {
 	BG,
 	PLATE,
@@ -10,21 +14,21 @@ enum {
 	BASKET
 };
 
-struct __declspec(dllexport) coord{
+struct ICAT_API coord {
 	UINT col, row;
 	coord() = default;
 	coord(UINT, UINT);
 	bool operator == (const coord&);
 };
 
-struct Object : public CObject {
+struct ICAT_API Object : public CObject {
 	coord position;
 
 	Object() = default;
 	virtual ~Object() {}
 };
 
-class __declspec(dllexport) CPlate : public Object{
+class ICAT_API CPlate : public Object {
 public:
 	UINT num_fish;
 
@@ -38,7 +42,7 @@ public:
 	void Serialize(CArchive&);
 };
 
-class __declspec(dllexport) CBasket : public Object{
+class ICAT_API CBasket : public Object {
 public:
 	DECLARE_SERIAL(CBasket);
 
@@ -50,18 +54,17 @@ public:
 	void Serialize(CArchive&);
 };
 
-class __declspec(dllexport) CRoom : public CObject, IRoom
-{
-	plates_type _plates;
-	baskets_type _baskets;
-	cats_type _cats;
+class ICAT_API CRoom : public CObject, IRoom {
+	plates_type * _plates;
+	baskets_type * _baskets;
+	cats_type * _cats;
 public:
 	size_t width, height;
 
 	DECLARE_SERIAL(CRoom);
-	virtual plates_type plates() const;
-	virtual cats_type cats() const;
-	virtual baskets_type baskets() const;
+	virtual plates_type * plates() const;
+	virtual cats_type * cats() const;
+	virtual baskets_type * baskets() const;
 	void AddBasket(CBasket*);
 	void AddPlate(CPlate*);
 	void AddCat(ICat*);

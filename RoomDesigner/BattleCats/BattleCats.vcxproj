@@ -14,7 +14,7 @@
     <ProjectGuid>{0C5814FE-F0BD-43AB-9258-835FBCB29819}</ProjectGuid>
     <RootNamespace>BattleCats</RootNamespace>
     <Keyword>MFCProj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -132,6 +132,9 @@
     <Image Include="res\Toolbar.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\libicat\libicat.vcxproj">
+      <Project>{7b4e1e4b-40c0-4781-8812-08ac4e19c8a4}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\libroom\libroom.vcxproj">
       <Project>{3f58f2eb-bcdf-4799-8319-726c3c79219b}</Project>
     </ProjectReference>

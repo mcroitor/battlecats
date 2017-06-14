@@ -13,7 +13,7 @@ typedef std::deque<ICat*>::iterator		cats_iterator;
 typedef std::deque<CBasket*>::iterator	baskets_iterator;
 
 struct IRoom {
-	virtual plates_type * plates() const = 0;
-	virtual cats_type * cats() const = 0;
-	virtual baskets_type * baskets() const = 0;
+	virtual plates_type plates() const = 0;
+	virtual cats_type cats() const = 0;
+	virtual baskets_type baskets() const = 0;
 };

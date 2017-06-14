@@ -55,16 +55,16 @@ public:
 };
 
 class ICAT_API CRoom : public CObject, IRoom {
-	plates_type * _plates;
-	baskets_type * _baskets;
-	cats_type * _cats;
+	plates_type _plates;
+	baskets_type _baskets;
+	cats_type _cats;
 public:
 	size_t width, height;
 
 	DECLARE_SERIAL(CRoom);
-	virtual plates_type * plates() const;
-	virtual cats_type * cats() const;
-	virtual baskets_type * baskets() const;
+	virtual plates_type plates() const;
+	virtual cats_type cats() const;
+	virtual baskets_type baskets() const;
 	void AddBasket(CBasket*);
 	void AddPlate(CPlate*);
 	void AddCat(ICat*);

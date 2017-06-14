@@ -55,6 +55,7 @@ BOOL CBattleCatsDoc::OnNewDocument()
 
 void CBattleCatsDoc::Serialize(CArchive& ar)
 {
+	room.Serialize(ar);
 	if (ar.IsStoring())
 	{
 		// TODO: add storing code here

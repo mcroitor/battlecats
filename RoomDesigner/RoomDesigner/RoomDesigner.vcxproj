@@ -14,7 +14,7 @@
     <ProjectGuid>{D4E4B305-ABF4-4339-A986-C673BDDC2511}</ProjectGuid>
     <RootNamespace>RoomDesigner</RootNamespace>
     <Keyword>MFCProj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -144,6 +144,11 @@
     <Image Include="res\RoomDesigner.ico" />
     <Image Include="res\RoomDesignerDoc.ico" />
     <Image Include="res\Toolbar.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libroom\libroom.vcxproj">
+      <Project>{3f58f2eb-bcdf-4799-8319-726c3c79219b}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

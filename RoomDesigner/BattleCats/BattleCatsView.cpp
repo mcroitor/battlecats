@@ -11,6 +11,7 @@
 
 #include "BattleCatsDoc.h"
 #include "BattleCatsView.h"
+#include "StartDlg.h"
 #include "..\libicat\icat.h"
 
 #include <strsafe.h>
@@ -19,7 +20,8 @@
 #define new DEBUG_NEW
 #endif
 
-const size_t SHIFT_POS = 200;
+const size_t X_SHIFT = 250;
+const size_t Y_SHIFT = 50;
 
 
 // CBattleCatsView
@@ -31,7 +33,8 @@ BEGIN_MESSAGE_MAP(CBattleCatsView, CView)
 	ON_COMMAND(ID_FILE_PRINT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CView::OnFilePrintPreview)
-	ON_COMMAND(ID_FILE_LOADCATS, &CBattleCatsView::OnFileLoadcats)
+	ON_COMMAND(ID_OPTIONS_LOADCATS, &CBattleCatsView::OnOptionsLoadcats)
+	ON_COMMAND(ID_OPTIONS_START, &CBattleCatsView::OnOptionsStart)
 END_MESSAGE_MAP()
 
 // CBattleCatsView construction/destruction
@@ -43,7 +46,8 @@ CBattleCatsView::CBattleCatsView()
 	sprite[PLATE].Load(L"images32/plate32.png");
 	sprite[FISH].Load(L"images32/fish32.png");
 	sprite[BASKET].Load(L"images32/bed32.png");
-
+	sprite[CAT].Load(L"images32/cat32.png");
+	stage = 0;
 }
 
 CBattleCatsView::~CBattleCatsView()
@@ -70,25 +74,43 @@ void CBattleCatsView::OnDraw(CDC* pDC)
 	CRoom& room = pDoc->room;
 	int iw = sprite[BG].GetWidth();
 	int ih = sprite[BG].GetHeight();
-	CDC dc;
-	dc.CreateCompatibleDC(pDC);
 	int i, j;
+	CDC dc;
+	CString text;
+	dc.CreateCompatibleDC(pDC);
+
+	if (stage != 0) {
+		text.Format(L"Stage %d", stage);
+		text += L"     " + message;
+		pDC->TextOutW(10, 10, text);
+	}
+
+	// loaded cats		
+	text.Format(L"Loaded %d cats:", room.cats()->size());
+	pDC->TextOutW(10, 10 + Y_SHIFT, text);
+	for (j = 0; j != room.cats()->size(); ++j) {
+		CString text;
+		CatConfig& cfg = room.cats()->at(j)->getConfig();
+		text.Format(L"%s by %s", CString(cfg.name.c_str()), CString(cfg.author.c_str()));
+		pDC->TextOutW(10, 30 + 20 * j + Y_SHIFT, text);
+	}
+
+	text.Format(L"Score:");
+	pDC->TextOutW(200, 10 + Y_SHIFT, text);
+	// draw room here	
 	for (j = 0; j != room.height; ++j) {
 		for (i = 0; i != room.width; ++i) {
-			sprite[room.at(j, i)].Draw(*pDC, j * iw + SHIFT_POS, i * ih, iw, ih);
+			sprite[room.at(j, i)].Draw(*pDC, j * iw + X_SHIFT, i * ih + Y_SHIFT, iw, ih);
 
 		}
 	}
 
-	// loaded cats
-	CString text;
-	text.Format(L"Loaded %d cats:", room.cats().size());
-	pDC->TextOutW(10, 10, text);
-	for (j = 0; j != room.cats().size(); ++j) {
-		CString text;
-		CatConfig& cfg = room.cats().at(j)->getConfig();
-		text.Format(L"%s by %s", CString(cfg.name.c_str()), CString(cfg.author.c_str()));
-		pDC->TextOutW(10, 30 + 20 * j, text);
+
+
+	// draw cats
+	for (j = 0; j != room.cats()->size(); ++j) {
+		coord& aux = room.cats()->at(j)->position;
+		sprite[CAT].Draw(*pDC, aux.col * iw + X_SHIFT, aux.row * ih + Y_SHIFT, iw, ih);
 	}
 }
 
@@ -138,11 +160,10 @@ void CBattleCatsView::LoadCats()
 {
 	typedef ICat* (*createCatFunc)(IRoom* /*room*/);
 	CRoom& room = GetDocument()->room;
+	room.RemoveCats();
 	//room.AddCat();
 	WIN32_FIND_DATA ffd;
-	LARGE_INTEGER filesize;
 	TCHAR szDir[MAX_PATH];
-	size_t length_of_arg;
 	HANDLE hFind = INVALID_HANDLE_VALUE;
 	DWORD dwError = 0;
 
@@ -167,7 +188,9 @@ void CBattleCatsView::LoadCats()
 			HMODULE handle = LoadLibrary(ffd.cFileName);
 			if (handle != NULL) {
 				createCatFunc createCat = (createCatFunc)GetProcAddress(handle, "createCat");
+				// TODO ##: check, if function exists
 				ICat* cat = createCat((IRoom*)&room);
+				// TODO ##: check, cats owner is not freak
 				room.AddCat(cat);
 				//MessageBox(CString(cat->getConfig().name.c_str()));
 			}
@@ -185,8 +208,80 @@ void CBattleCatsView::LoadCats()
 }
 
 
-void CBattleCatsView::OnFileLoadcats()
+void CBattleCatsView::OnOptionsLoadcats()
 {
 	// TODO: Add your command handler code here
 	LoadCats();
+}
+
+void CBattleCatsView::SetCats() {
+	CRoom& room = GetDocument()->room;
+	//room.SetCats();
+}
+
+void DoAction(IAction* action) {
+	if (action == nullptr) return;
+	EatAction* eat_action = nullptr;
+	MoveAction* move_action = nullptr;
+	SleepAction* sleep_action = nullptr;
+	ComposedAction* composed_action = nullptr;
+
+	switch (action->type()) {
+	case ACTION_T::EAT:
+		eat_action = (EatAction*)action;
+		// do smth
+		delete eat_action;
+		break;
+	case ACTION_T::MOVE:
+		move_action = (MoveAction*)action;
+		move_action->move();
+		delete move_action;
+		break;
+	case ACTION_T::SLEEP:
+		sleep_action = (SleepAction*)action;
+		sleep_action->sleep();
+		delete sleep_action;
+		break;
+	case ACTION_T::COMPOSED:
+		composed_action = (ComposedAction*)action;
+		IAction* action = composed_action->pop_front();
+		DoAction(action);
+		// TODO ##
+		if (composed_action->actions().size() == 0) {
+			delete composed_action;
+		}
+		break;
+	}
+}
+
+void CBattleCatsView::OnOptionsStart()
+{
+	// TODO: Add your command handler code here
+	CStartDlg dlg;
+	
+	if (dlg.DoModal() == IDOK) {
+		UINT it = dlg.nr_it;
+		CRoom& room = GetDocument()->room;
+		cats_type cats = new std::deque<ICat*> (room.cats()->begin(), room.cats()->end());
+		actions_type actions;
+		actions.resize(cats->size(), nullptr);
+
+		while (stage != it) {
+			++stage;
+			for (size_t j = 0; j != cats->size(); ++j) {
+				if ((*cats)[j] == nullptr) {
+					continue;
+				}
+				IAction* tmp = (*cats)[j]->Next(actions[j]);
+				if (tmp != nullptr) {
+					actions[j] = tmp;
+				}
+				DoAction(actions[j]);
+				message.Format(L"cat %s do action", CString((*cats)[j]->getConfig().name.c_str()));
+				Sleep(500);
+			}
+			RedrawWindow();
+			Sleep(10);
+		}
+	}
 }

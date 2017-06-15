@@ -36,11 +36,11 @@ IAction* ACat::Next(IAction* action) {
 		}
 		else {
 			// where is a plate with more fish?!
-			plates_type plates(this->getRoom()->plates().begin(), this->getRoom()->plates().end());
-			std::sort(plates.begin(), plates.end(), by_volume(this));
+			plates_type plates = new std::deque<CPlate*>(this->getRoom()->plates()->begin(), this->getRoom()->plates()->end());
+			std::sort(plates->begin(), plates->end(), by_volume(this));
 			ComposedAction* composedAction = new ComposedAction(this);
 			// go to this plate
-			composedAction->push_back(new GoToAction(this, plates.front()));
+			composedAction->push_back(new GoToAction(this, plates->front()));
 			// eat from plate
 			composedAction->push_back(new EatAction(this));
 			return composedAction;

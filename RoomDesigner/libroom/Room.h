@@ -11,7 +11,8 @@ enum {
 	BG,
 	PLATE,
 	FISH,
-	BASKET
+	BASKET,
+	CAT
 };
 
 struct ICAT_API coord {
@@ -62,14 +63,16 @@ public:
 	size_t width, height;
 
 	DECLARE_SERIAL(CRoom);
-	virtual plates_type plates() const;
-	virtual cats_type cats() const;
-	virtual baskets_type baskets() const;
+	virtual const plates_type plates() const;
+	virtual const cats_type cats() const;
+	virtual const baskets_type baskets() const;
 	void AddBasket(CBasket*);
 	void AddPlate(CPlate*);
 	void AddCat(ICat*);
+	void SetCats();
 	void RemoveBasket(size_t);
 	void RemovePlate(size_t);
+	void RemoveCats();
 
 	CRoom();
 	CRoom(size_t, size_t);

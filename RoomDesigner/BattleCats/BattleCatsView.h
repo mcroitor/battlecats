@@ -14,7 +14,9 @@ protected: // create from serialization only
 // Attributes
 public:
 	CBattleCatsDoc* GetDocument() const;
-	CImage sprite[4];
+	CImage sprite[5];
+	UINT stage;
+	CString message;
 
 // Operations
 public:
@@ -43,7 +45,9 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	void LoadCats();
-	afx_msg void OnFileLoadcats();
+	void SetCats();
+	afx_msg void OnOptionsLoadcats();
+	afx_msg void OnOptionsStart();
 };
 
 #ifndef _DEBUG  // debug version in BattleCatsView.cpp

@@ -42,6 +42,12 @@ void ComposedAction::push_back(IAction* action) {
 	_actions.push_back(action);
 }
 
+IAction* ComposedAction::pop_front() {
+	IAction* action = _actions.front();
+	_actions.pop_front();
+	return action;
+}
+
 GoToAction::GoToAction(ICat* cat, const Object* object) : ComposedAction(cat) {
 	// move to
 	distance_type dist = ::distance(cat->position, object->position);
@@ -50,7 +56,7 @@ GoToAction::GoToAction(ICat* cat, const Object* object) : ComposedAction(cat) {
 
 GoToSleepAction::GoToSleepAction(ICat* cat) : ComposedAction(cat) {
 	// detect nearest bed
-	CBasket* bed = *std::min_element(cat->getRoom()->baskets().begin(), cat->getRoom()->baskets().end(), by_distance(cat));
+	CBasket* bed = *std::min_element(cat->getRoom()->baskets()->begin(), cat->getRoom()->baskets()->end(), by_distance(cat));
 	// move to
 	GoToAction(cat, bed);
 	// sleep
@@ -71,6 +77,7 @@ const IRoom * ICat::getRoom() const
 ICat::ICat(const CatConfig& cfg, IRoom* room) {
 	_cfg = cfg;
 	_room = room;
+	position = _room->baskets()->front()->position;
 }
 ICat::~ICat() {};
 const size_t ICat::fishInStomach() const {

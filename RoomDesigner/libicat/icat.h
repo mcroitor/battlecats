@@ -73,6 +73,7 @@ struct ICAT_API ComposedAction : IAction {
 	virtual ACTION_T type() const override final;
 	const actions_type& actions() const;
 	void push_back(IAction* /*action*/);
+	IAction* pop_front();
 protected:
 	actions_type _actions;
 };

@@ -99,8 +99,8 @@ void CRoomDesignerView::OnDraw(CDC* pDC)
 		}
 	}
 	if (showvalues){
-		for (i = 0; i != room.plates().size(); ++i){
-			CPlate* plate = room.plates().at(i);
+		for (i = 0; i != room.plates()->size(); ++i){
+			CPlate* plate = room.plates()->at(i);
 			CString text;
 			text.Format(L"%d", plate->num_fish);
 			pDC->TextOut(plate->position.col * iw, plate->position.row * ih, text);
@@ -267,16 +267,16 @@ void CRoomDesignerView::OnIdcRemove()
 	CRoom& room = this->GetDocument()->room;
 	UINT type = room.at(clickPos.col, clickPos.row);
 	if (type == BASKET){
-		for (UINT i = 0; i != room.baskets().size(); ++i){
-			if ((room.baskets())[i]->position == clickPos){
+		for (UINT i = 0; i != room.baskets()->size(); ++i){
+			if ((*room.baskets())[i]->position == clickPos){
 				room.RemoveBasket(i);
 				break;
 			}
 		}		
 	}
 	else if (type == PLATE || type == FISH){
-		for (UINT i = 0; i != room.plates().size(); ++i){
-			if ((room.plates())[i]->position == clickPos){
+		for (UINT i = 0; i != room.plates()->size(); ++i){
+			if ((*room.plates())[i]->position == clickPos){
 				room.RemovePlate(i);
 				break;
 			}

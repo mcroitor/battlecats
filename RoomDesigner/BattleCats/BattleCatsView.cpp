@@ -219,69 +219,38 @@ void CBattleCatsView::SetCats() {
 	//room.SetCats();
 }
 
-void DoAction(IAction* action) {
-	if (action == nullptr) return;
-	EatAction* eat_action = nullptr;
-	MoveAction* move_action = nullptr;
-	SleepAction* sleep_action = nullptr;
-	ComposedAction* composed_action = nullptr;
-
-	switch (action->type()) {
-	case ACTION_T::EAT:
-		eat_action = (EatAction*)action;
-		// do smth
-		delete eat_action;
-		break;
-	case ACTION_T::MOVE:
-		move_action = (MoveAction*)action;
-		move_action->move();
-		delete move_action;
-		break;
-	case ACTION_T::SLEEP:
-		sleep_action = (SleepAction*)action;
-		sleep_action->sleep();
-		delete sleep_action;
-		break;
-	case ACTION_T::COMPOSED:
-		composed_action = (ComposedAction*)action;
-		IAction* action = composed_action->pop_front();
-		DoAction(action);
-		// TODO ##
-		if (composed_action->actions().size() == 0) {
-			delete composed_action;
-		}
-		break;
-	}
-}
-
 void CBattleCatsView::OnOptionsStart()
 {
 	// TODO: Add your command handler code here
 	CStartDlg dlg;
-	
+
 	if (dlg.DoModal() == IDOK) {
 		UINT it = dlg.nr_it;
 		CRoom& room = GetDocument()->room;
-		cats_type cats = new std::deque<ICat*> (room.cats()->begin(), room.cats()->end());
+		cats_type cats = new std::deque<ICat*>(room.cats()->begin(), room.cats()->end());
 		actions_type actions;
 		actions.resize(cats->size(), nullptr);
 
 		while (stage != it) {
 			++stage;
+
 			for (size_t j = 0; j != cats->size(); ++j) {
-				if ((*cats)[j] == nullptr) {
-					continue;
-				}
+				message.Format(L"cat %s do action", CString((*cats)[j]->getConfig().name.c_str()));
 				IAction* tmp = (*cats)[j]->Next(actions[j]);
 				if (tmp != nullptr) {
 					actions[j] = tmp;
 				}
-				DoAction(actions[j]);
-				message.Format(L"cat %s do action", CString((*cats)[j]->getConfig().name.c_str()));
-				Sleep(500);
+				actions[j]->doAction();
+				if (!(actions[j]->type() == ACTION_T::COMPOSED && 
+					( ((ComposedAction*)actions[j])->actions().size() != 0))) {
+					actions[j] = nullptr;
+				}
+				//message.Format(L"cat %s do action", CString((*cats)[j]->getConfig().name.c_str()));
+				Sleep(1000);
+				RedrawWindow();
 			}
-			RedrawWindow();
-			Sleep(10);
+			
+			Sleep(100);
 		}
 	}
 }

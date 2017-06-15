@@ -26,6 +26,17 @@ ACTION_T EatAction::type()		const { return ACTION_T::EAT; }
 ACTION_T SleepAction::type()	const { return ACTION_T::SLEEP; }
 ACTION_T ComposedAction::type() const { return ACTION_T::COMPOSED; }
 
+// do actions
+void MoveAction::doAction() { move(); }
+void EatAction::doAction() { }
+void SleepAction::doAction() { sleep();  }
+void ComposedAction::doAction() {
+	if (actions().size() != 0) {
+		IAction* tmp = pop_front();
+		tmp->doAction();
+	}
+}
+
 distance_type MoveAction::distance() const {
 	return _distance;
 }

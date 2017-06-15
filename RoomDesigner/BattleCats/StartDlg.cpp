@@ -13,7 +13,7 @@ IMPLEMENT_DYNAMIC(CStartDlg, CDialogEx)
 
 CStartDlg::CStartDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_DIALOG1, pParent)
-	, nr_it(50)
+	, nr_it(10)
 {
 
 }

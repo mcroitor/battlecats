@@ -1,1 +1,0 @@
-@call "C:\Program Files (x86)\PVS-Studio\x64\PVS-Studio.exe" --cfg "C:\Users\krey\Source\Repos\battlecats\RoomDesigner\libicat\icat.cpp.PVS-Studio.cfg"

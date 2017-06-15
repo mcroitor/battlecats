@@ -42,6 +42,7 @@ class IAction {
 public:
 	IAction(ICat* /*cat*/);
 	virtual ACTION_T type() const = 0;
+	virtual void doAction() = 0;
 protected:
 	virtual ICAT_API const CatConfig catConfig() const final;
 	ICat* _cat;
@@ -53,6 +54,7 @@ struct ICAT_API MoveAction : public IAction {
 	virtual ACTION_T type() const override final;
 	distance_type distance() const;
 	void move();
+	virtual void doAction() final;
 protected:
 	distance_type _distance;
 };
@@ -60,12 +62,14 @@ protected:
 struct ICAT_API EatAction : IAction {
 	EatAction(ICat* /*cat*/);
 	virtual ACTION_T type() const override final;
+	virtual void doAction() final;
 };
 
 struct ICAT_API SleepAction : IAction {
 	SleepAction(ICat* /*cat*/);
 	virtual ACTION_T type() const override final;
 	virtual void sleep() const final;
+	virtual void doAction() final;
 };
 
 struct ICAT_API ComposedAction : IAction {
@@ -74,6 +78,7 @@ struct ICAT_API ComposedAction : IAction {
 	const actions_type& actions() const;
 	void push_back(IAction* /*action*/);
 	IAction* pop_front();
+	virtual void doAction() final;
 protected:
 	actions_type _actions;
 };

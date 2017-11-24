@@ -91,7 +91,7 @@ void CBattleCatsView::OnDraw(CDC* pDC)
 	for (j = 0; j != room.cats()->size(); ++j) {
 		CString text;
 		CatConfig& cfg = room.cats()->at(j)->getConfig();
-		text.Format(L"%s by %s", CString(cfg.name.c_str()), CString(cfg.author.c_str()));
+		text.Format(L"%hs by %hs", cfg.name.c_str(), cfg.author.c_str());
 		pDC->TextOutW(10, 30 + 20 * j + Y_SHIFT, text);
 	}
 
@@ -235,7 +235,7 @@ void CBattleCatsView::OnOptionsStart()
 			++stage;
 
 			for (size_t j = 0; j != cats->size(); ++j) {
-				message.Format(L"cat %s do action", CString((*cats)[j]->getConfig().name.c_str()));
+				message.Format(L"cat %hs do action", (*cats)[j]->getConfig().name.c_str());
 				IAction* tmp = (*cats)[j]->Next(actions[j]);
 				if (tmp != nullptr) {
 					actions[j] = tmp;

@@ -12,7 +12,7 @@ typedef std::deque<CPlate*>::iterator	plates_iterator;
 typedef std::deque<ICat*>::iterator		cats_iterator;
 typedef std::deque<CBasket*>::iterator	baskets_iterator;
 
-struct IRoom {
+struct __declspec(dllexport) IRoom {
 	virtual const plates_type plates() const = 0;
 	virtual const cats_type cats() const = 0;
 	virtual const baskets_type baskets() const = 0;

@@ -17,6 +17,7 @@
 #define new DEBUG_NEW
 #endif
 
+typedef ICat* (*createCat)(IRoom* /*room*/);;
 // CBattleCatsDoc
 
 IMPLEMENT_DYNCREATE(CBattleCatsDoc, CDocument)
@@ -56,6 +57,7 @@ BOOL CBattleCatsDoc::OnNewDocument()
 void CBattleCatsDoc::Serialize(CArchive& ar)
 {
 	room.Serialize(ar);
+	LoadCats();
 	if (ar.IsStoring())
 	{
 		// TODO: add storing code here
@@ -64,6 +66,40 @@ void CBattleCatsDoc::Serialize(CArchive& ar)
 	{
 		// TODO: add loading code here
 	}
+}
+
+void CBattleCatsDoc::LoadCats() {
+	CString pattern = L"./cats/*.dll";
+	WIN32_FIND_DATA findData;
+	HANDLE hFind = FindFirstFile(pattern, &findData);
+	if (hFind == INVALID_HANDLE_VALUE)
+	{
+		return;
+	}
+	// List all the files in the directory with some info about them.
+
+	do
+	{
+		if (findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+		{
+			// directory is here!
+		}
+		else
+		{
+			HMODULE h = LoadLibrary(findData.cFileName);
+			if (h != NULL) {
+				//MessageBox(NULL, findData.cFileName, L"Loaded!", 0);
+				createCat CreateCat = (createCat)GetProcAddress(h, "createCat");
+				if (CreateCat != NULL) {
+					ICat* cat = CreateCat(&room);
+					room.AddCat(cat);
+				}
+				else {
+					MessageBox(NULL, L"function CreateCat not found!", L"OOPS!", 0);
+				}
+			}
+		}
+	} while (FindNextFile(hFind, &findData) != 0);
 }
 
 #ifdef SHARED_HANDLERS
@@ -77,7 +113,7 @@ void CBattleCatsDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 	CString strText = _T("TODO: implement thumbnail drawing here");
 	LOGFONT lf;
 
-	CFont* pDefaultGUIFont = CFont::FromHandle((HFONT) GetStockObject(DEFAULT_GUI_FONT));
+	CFont* pDefaultGUIFont = CFont::FromHandle((HFONT)GetStockObject(DEFAULT_GUI_FONT));
 	pDefaultGUIFont->GetLogFont(&lf);
 	lf.lfHeight = 36;
 

@@ -22,6 +22,7 @@ public:
 public:
 	virtual BOOL OnNewDocument();
 	virtual void Serialize(CArchive& ar);
+	void LoadCats();
 #ifdef SHARED_HANDLERS
 	virtual void InitializeSearchContent();
 	virtual void OnDrawThumbnail(CDC& dc, LPRECT lprcBounds);

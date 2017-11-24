@@ -55,7 +55,7 @@ public:
 	void Serialize(CArchive&);
 };
 
-class ICAT_API CRoom : public CObject, IRoom {
+class ICAT_API CRoom : public CObject, public IRoom {
 	plates_type _plates;
 	baskets_type _baskets;
 	cats_type _cats;

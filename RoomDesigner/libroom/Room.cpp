@@ -108,6 +108,9 @@ void CRoom::SetCats() {
 }
 
 CRoom& CRoom::operator = (const CRoom& room) {
+	if (this == &room) {
+		return *this;
+	}
 	width = room.width;
 	height = room.height;
 	// TODO: memory leak?!
@@ -120,37 +123,39 @@ CRoom& CRoom::operator = (const CRoom& room) {
 }
 
 void CRoom::Serialize(CArchive& ar) {
+	// bug here!!!
 	if (ar.IsStoring()) {
 		ar << this->width << this->height;
-		// plates
 		ar << _plates->size();
+		ar << _baskets->size();
+
 		for (plates_iterator plateIterator = _plates->begin(); plateIterator != _plates->end(); ++plateIterator) {
 			(*plateIterator)->Serialize(ar);
+			CString str;
+			str.Format(L"( %d, %d)", (*plateIterator)->position.col, (*plateIterator)->position.row);
+			MessageBox(NULL, str, L"OOPS", 0);
 		}
-
-		// baskets
-		ar << _baskets->size();
 		for (baskets_iterator basketIterator = _baskets->begin(); basketIterator != _baskets->end(); ++basketIterator) {
 			(*basketIterator)->Serialize(ar);
 		}
 	}
 	else {
+		size_t nr_plates, nr_baskets;
 		ar >> this->width >> this->height;
-		//plates
-		size_t nr_plates;
 		ar >> nr_plates;
-		_plates->resize(nr_plates, new CPlate);
-		for (plates_iterator plateIterator = _plates->begin(); plateIterator != _plates->end(); ++plateIterator) {
-			//*plateIterator = new CPlate;
-			(*plateIterator)->Serialize(ar);
-		}
-
-		//baskets
-		size_t nr_baskets;
+		_plates->clear();
+		_plates->resize(nr_plates, new CPlate());
 		ar >> nr_baskets;
-		_baskets->resize(nr_baskets, new CBasket);
+		_baskets->clear();
+		_baskets->resize(nr_baskets, new CBasket());
+
+		for (plates_iterator plateIterator = _plates->begin(); plateIterator != _plates->end(); ++plateIterator) {
+			//(*plateIterator)->Serialize(ar);
+			CPlate* p = new CPlate();
+			p->Serialize(ar);
+			*plateIterator = p;
+		}
 		for (baskets_iterator basketIterator = _baskets->begin(); basketIterator != _baskets->end(); ++basketIterator) {
-			*basketIterator = new CBasket;
 			(*basketIterator)->Serialize(ar);
 		}
 	}
@@ -168,7 +173,7 @@ UINT CRoom::at(UINT col, UINT row) {
 	tmp.row = row;
 	// plates
 	for (plates_iterator plate = _plates->begin(); plate != _plates->end(); ++plate) {
-		if ((*plate)->position == tmp) {
+		if ((*plate)->position == tmp) {			
 			if ((*plate)->num_fish > 0) {
 				return FISH;
 			}

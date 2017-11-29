@@ -1,0 +1,2078 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Solution_Path">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="SolutionPath" type="xs:string" minOccurs="0" />
+                <xs:element name="SolutionVersion" type="xs:string" minOccurs="0" />
+                <xs:element name="PlogVersion" type="xs:unsignedInt" minOccurs="0" />
+                <xs:element name="ModificationDate" msdata:DateTimeMode="Utc" type="xs:dateTime" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="PVS-Studio_Analysis_Log">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="FavIcon" type="xs:boolean" minOccurs="0" msdata:Ordinal="0" />
+                <xs:element name="Level" type="xs:unsignedInt" minOccurs="0" msdata:Ordinal="1" />
+                <xs:element name="DefaultOrder" type="xs:int" minOccurs="0" msdata:Ordinal="2" />
+                <xs:element name="ErrorCode" type="xs:string" minOccurs="0" msdata:Ordinal="3" />
+                <xs:element name="Message" type="xs:string" msdata:Ordinal="4" />
+                <xs:element name="Project" type="xs:string" minOccurs="0" msdata:Ordinal="5" />
+                <xs:element name="ShortFile" type="xs:string" minOccurs="0" msdata:Ordinal="6" />
+                <xs:element name="Line" type="xs:int" msdata:Ordinal="7" />
+                <xs:element name="FalseAlarm" type="xs:boolean" minOccurs="0" msdata:Ordinal="8" />
+                <xs:element name="File" type="xs:string" msdata:Ordinal="9" />
+                <xs:element name="CodePrev" type="xs:unsignedInt" minOccurs="0" msdata:Ordinal="10" />
+                <xs:element name="CodeCurrent" type="xs:unsignedInt" minOccurs="0" msdata:Ordinal="11" />
+                <xs:element name="CodeNext" type="xs:unsignedInt" minOccurs="0" msdata:Ordinal="12" />
+                <xs:element name="TrialMessage" type="xs:boolean" minOccurs="0" msdata:Ordinal="13" />
+                <xs:element name="Analyzer" type="xs:int" minOccurs="0" msdata:Ordinal="14" />
+                <xs:element name="LineExtension" type="xs:string" minOccurs="0" msdata:Ordinal="15" />
+                <xs:element name="Retired" type="xs:boolean" default="false" minOccurs="0" msdata:Ordinal="16" />
+                <xs:element name="AnalyzedSourceFiles" type="xs:string" minOccurs="0" msdata:Ordinal="17" />
+              </xs:sequence>
+              <xs:attribute name="ErrorCodeNumeric" msdata:ReadOnly="true" msdata:Expression="IIF(LEN(ErrorCode) &lt; 2 OR (SUBSTRING(ErrorCode, 1, 1) &lt;&gt; 'V'), 0, CONVERT(SUBSTRING(ErrorCode, 2, LEN(ErrorCode) - 1), 'System.UInt32'))" type="xs:unsignedInt" use="prohibited" />
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//PVS-Studio_Analysis_Log" />
+        <xs:field xpath="Line" />
+        <xs:field xpath="Message" />
+        <xs:field xpath="File" />
+      </xs:unique>
+    </xs:element>
+  </xs:schema>
+  <Solution_Path>
+    <SolutionPath>D:\Documents\Visual Studio 2017\Projects\battlecats\RoomDesigner\BattleCats.sln</SolutionPath>
+    <SolutionVersion>15.0</SolutionVersion>
+    <PlogVersion>4</PlogVersion>
+    <ModificationDate>2017-11-29T18:44:31.3922754Z</ModificationDate>
+  </Solution_Path>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>1</Level>
+    <DefaultOrder>1</DefaultOrder>
+    <ErrorCode>V004</ErrorCode>
+    <Message>Diagnostics from the 64-bit rule set are not entirely accurate without the appropriate 64-bit compiler. Consider utilizing 64-bit compiler if possible.</Message>
+    <Project>RoomDesigner%libroom%libicat%BattleCats%bcat%acat</Project>
+    <ShortFile xml:space="preserve"> </ShortFile>
+    <Line>1</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File xml:space="preserve"> </File>
+    <CodePrev>0</CodePrev>
+    <CodeCurrent>0</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>2</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>RoomDesigner%libroom%libicat%BattleCats%bcat%acat</Project>
+    <ShortFile>room.h</ShortFile>
+    <Line>59</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.h</File>
+    <CodePrev>666543405</CodePrev>
+    <CodeCurrent>22227961</CodeCurrent>
+    <CodeNext>75488949</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesigner.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerdoc.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecats.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsdoc.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\bcat\bcat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\acat\acat.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>3</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>RoomDesigner%libroom%libicat%BattleCats%bcat%acat</Project>
+    <ShortFile>room.h</ShortFile>
+    <Line>60</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.h</File>
+    <CodePrev>22227961</CodePrev>
+    <CodeCurrent>75488949</CodeCurrent>
+    <CodeNext>1178517</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesigner.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerdoc.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecats.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsdoc.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\bcat\bcat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\acat\acat.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>4</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>RoomDesigner%libroom%libicat%BattleCats%bcat%acat</Project>
+    <ShortFile>room.h</ShortFile>
+    <Line>61</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.h</File>
+    <CodePrev>75488949</CodePrev>
+    <CodeCurrent>1178517</CodeCurrent>
+    <CodeNext>5816</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesigner.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerdoc.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecats.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsdoc.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\bcat\bcat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\acat\acat.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>5</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>RoomDesigner%libroom%libicat%BattleCats%bcat%acat</Project>
+    <ShortFile>room.h</ShortFile>
+    <Line>63</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.h</File>
+    <CodePrev>5816</CodePrev>
+    <CodeCurrent>21687419</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesigner.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerdoc.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecats.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsdoc.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\bcat\bcat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\acat\acat.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>6</DefaultOrder>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number 4 used: ...ileSettings(4);...</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesigner.cpp</ShortFile>
+    <Line>98</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesigner.cpp</File>
+    <CodePrev>1729599762</CodePrev>
+    <CodeCurrent>1266926195</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>7</DefaultOrder>
+    <ErrorCode>V668</ErrorCode>
+    <Message>There is no sense in testing the 'pDocTemplate' pointer against null, as the memory was allocated using the 'new' operator. The exception will be generated in the case of memory allocation error.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesigner.cpp</ShortFile>
+    <Line>109</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesigner.cpp</File>
+    <CodePrev>1366251848</CodePrev>
+    <CodeCurrent>5246267</CodeCurrent>
+    <CodeNext>177357</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>4</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>8</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'dlg.width' of function 'CRoom' to memsize type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerdoc.cpp</ShortFile>
+    <Line>52</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerdoc.cpp</File>
+    <CodePrev>747224797</CodePrev>
+    <CodeCurrent>3840251066</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>9</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion second argument 'dlg.height' of function 'CRoom' to memsize type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerdoc.cpp</ShortFile>
+    <Line>52</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerdoc.cpp</File>
+    <CodePrev>747224797</CodePrev>
+    <CodeCurrent>3840251066</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>10</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'j' to memsize type in an arithmetic expression: j != room.height</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>83</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>5079</CodePrev>
+    <CodeCurrent>2081246475</CodeCurrent>
+    <CodeNext>1053478660</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>11</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'i' to memsize type in an arithmetic expression: i != room.width</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>84</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>2081246475</CodePrev>
+    <CodeCurrent>1053478660</CodeCurrent>
+    <CodeNext>1710340367</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>12</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'i' to memsize type in an arithmetic expression: i != room.width</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>92</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>372081</CodePrev>
+    <CodeCurrent>1054527236</CodeCurrent>
+    <CodeNext>37714841</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>13</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'ih' to memsize type in an arithmetic expression: room.height * ih</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>94</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>37714841</CodePrev>
+    <CodeCurrent>3478103142</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>14</DefaultOrder>
+    <ErrorCode>V107</ErrorCode>
+    <Message>Implicit type conversion second argument 'room.height * ih' of function 'LineTo' to 32-bit type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>94</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>37714841</CodePrev>
+    <CodeCurrent>3478103142</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>15</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'i' to memsize type in an arithmetic expression: i != room.height</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>96</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>125</CodePrev>
+    <CodeCurrent>2109033735</CodeCurrent>
+    <CodeNext>37703681</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>16</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'iw' to memsize type in an arithmetic expression: room.width * iw</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>98</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>37703681</CodePrev>
+    <CodeCurrent>3866927266</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>17</DefaultOrder>
+    <ErrorCode>V107</ErrorCode>
+    <Message>Implicit type conversion first argument 'room.width * iw' of function 'LineTo' to 32-bit type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>98</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>37703681</CodePrev>
+    <CodeCurrent>3866927266</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>18</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'i' to memsize type in an arithmetic expression: i != room.plates()-&gt;size()</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>102</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>1489501</CodePrev>
+    <CodeCurrent>1455144883</CodeCurrent>
+    <CodeNext>2564484893</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>19</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'i' of function 'at' to memsize type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>103</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>1455144883</CodePrev>
+    <CodeCurrent>2564484893</CodeCurrent>
+    <CodeNext>256187</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>20</DefaultOrder>
+    <ErrorCode>V576</ErrorCode>
+    <Message>Incorrect format. Consider checking the second actual argument of the 'Format' function. The SIGNED integer type argument is expected.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>105</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>256187</CodePrev>
+    <CodeCurrent>548897054</CodeCurrent>
+    <CodeNext>3189538033</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>4</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>21</DefaultOrder>
+    <ErrorCode>V576</ErrorCode>
+    <Message>Incorrect format. Consider checking the second actual argument of the 'Format' function. The SIGNED integer type argument is expected.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>111</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>256381</CodePrev>
+    <CodeCurrent>2954768846</CodeCurrent>
+    <CodeNext>2632362149</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>4</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>22</DefaultOrder>
+    <ErrorCode>V576</ErrorCode>
+    <Message>Incorrect format. Consider checking the third actual argument of the 'Format' function. The SIGNED integer type argument is expected.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>111</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>256381</CodePrev>
+    <CodeCurrent>2954768846</CodeCurrent>
+    <CodeNext>2632362149</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>4</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>23</DefaultOrder>
+    <ErrorCode>V111</ErrorCode>
+    <Message>Call of function 'Format' with variable number of arguments. Second argument has memsize type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>111</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>256381</CodePrev>
+    <CodeCurrent>2954768846</CodeCurrent>
+    <CodeNext>2632362149</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>24</DefaultOrder>
+    <ErrorCode>V111</ErrorCode>
+    <Message>Call of function 'Format' with variable number of arguments. Third argument has memsize type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>111</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>256381</CodePrev>
+    <CodeCurrent>2954768846</CodeCurrent>
+    <CodeNext>2632362149</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>25</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'iw' to memsize type in an arithmetic expression: iw * room.width</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>112</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>2954768846</CodePrev>
+    <CodeCurrent>2632362149</CodeCurrent>
+    <CodeNext>3360762698</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>26</DefaultOrder>
+    <ErrorCode>V107</ErrorCode>
+    <Message>Implicit type conversion first argument 'iw * room.width + 10' of function 'TextOutW' to 32-bit type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>112</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>2954768846</CodePrev>
+    <CodeCurrent>2632362149</CodeCurrent>
+    <CodeNext>3360762698</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>27</DefaultOrder>
+    <ErrorCode>V576</ErrorCode>
+    <Message>Incorrect format. Consider checking the second actual argument of the 'Format' function. The SIGNED integer type argument is expected.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>113</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>2632362149</CodePrev>
+    <CodeCurrent>3360762698</CodeCurrent>
+    <CodeNext>2632362661</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>4</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>28</DefaultOrder>
+    <ErrorCode>V111</ErrorCode>
+    <Message>Call of function 'Format' with variable number of arguments. Second argument has memsize type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>113</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>2632362149</CodePrev>
+    <CodeCurrent>3360762698</CodeCurrent>
+    <CodeNext>2632362661</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>29</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'iw' to memsize type in an arithmetic expression: iw * room.width</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>114</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>3360762698</CodePrev>
+    <CodeCurrent>2632362661</CodeCurrent>
+    <CodeNext>2339866858</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>30</DefaultOrder>
+    <ErrorCode>V107</ErrorCode>
+    <Message>Implicit type conversion first argument 'iw * room.width + 10' of function 'TextOutW' to 32-bit type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>114</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>3360762698</CodePrev>
+    <CodeCurrent>2632362661</CodeCurrent>
+    <CodeNext>2339866858</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>31</DefaultOrder>
+    <ErrorCode>V576</ErrorCode>
+    <Message>Incorrect format. Consider checking the second actual argument of the 'Format' function. The SIGNED integer type argument is expected.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>115</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>2632362661</CodePrev>
+    <CodeCurrent>2339866858</CodeCurrent>
+    <CodeNext>2632363173</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>4</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>32</DefaultOrder>
+    <ErrorCode>V111</ErrorCode>
+    <Message>Call of function 'Format' with variable number of arguments. Second argument has memsize type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>115</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>2632362661</CodePrev>
+    <CodeCurrent>2339866858</CodeCurrent>
+    <CodeNext>2632363173</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>33</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'iw' to memsize type in an arithmetic expression: iw * room.width</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>116</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>2339866858</CodePrev>
+    <CodeCurrent>2632363173</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>34</DefaultOrder>
+    <ErrorCode>V107</ErrorCode>
+    <Message>Implicit type conversion first argument 'iw * room.width + 10' of function 'TextOutW' to 32-bit type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>116</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>2339866858</CodePrev>
+    <CodeCurrent>2632363173</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>35</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'iw' to memsize type in an arithmetic expression: iw * room.width</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>122</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>3209613259</CodePrev>
+    <CodeCurrent>2592457046</CodeCurrent>
+    <CodeNext>5887</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>36</DefaultOrder>
+    <ErrorCode>V107</ErrorCode>
+    <Message>Implicit type conversion first argument 'iw * room.width + 10' of function 'TextOutW' to 32-bit type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>122</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>3209613259</CodePrev>
+    <CodeCurrent>2592457046</CodeCurrent>
+    <CodeNext>5887</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>37</DefaultOrder>
+    <ErrorCode>V807</ErrorCode>
+    <Message>Decreased performance. Consider creating a pointer to avoid using the 'room.plates()' expression repeatedly.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>113</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>2632362149</CodePrev>
+    <CodeCurrent>3360762698</CodeCurrent>
+    <CodeNext>2632362661</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>5</Analyzer>
+    <LineExtension>113,120,120</LineExtension>
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>38</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'dlg.row' to memsize type in an arithmetic expression: dlg.row &gt;= room.width</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>180</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>11675309</CodePrev>
+    <CodeCurrent>5847834</CodeCurrent>
+    <CodeNext>17733</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>39</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'dlg.col' to memsize type in an arithmetic expression: dlg.col &gt;= room.height</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>180</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>11675309</CodePrev>
+    <CodeCurrent>5847834</CodeCurrent>
+    <CodeNext>17733</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>40</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'dlg.row' to memsize type in an arithmetic expression: dlg.row &gt;= room.width</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>204</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>11675309</CodePrev>
+    <CodeCurrent>5847834</CodeCurrent>
+    <CodeNext>17733</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>41</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'dlg.col' to memsize type in an arithmetic expression: dlg.col &gt;= room.height</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>204</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>11675309</CodePrev>
+    <CodeCurrent>5847834</CodeCurrent>
+    <CodeNext>17733</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>42</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'i' to memsize type in an arithmetic expression: i != room.baskets()-&gt;size()</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>285</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>5996481</CodePrev>
+    <CodeCurrent>2849803657</CodeCurrent>
+    <CodeNext>3122430752</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>43</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: (*room.baskets())[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>286</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>2849803657</CodePrev>
+    <CodeCurrent>3122430752</CodeCurrent>
+    <CodeNext>86636845</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>44</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'i' of function 'RemoveBasket' to memsize type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>287</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>3122430752</CodePrev>
+    <CodeCurrent>86636845</CodeCurrent>
+    <CodeNext>2337</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>45</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'i' to memsize type in an arithmetic expression: i != room.plates()-&gt;size()</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>293</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>1806753570</CodePrev>
+    <CodeCurrent>1455106979</CodeCurrent>
+    <CodeNext>3659233622</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>46</DefaultOrder>
+    <ErrorCode>V108</ErrorCode>
+    <Message>Incorrect index type: (*room.plates())[not a memsize-type]. Use memsize type instead.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>294</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>1455106979</CodePrev>
+    <CodeCurrent>3659233622</CodeCurrent>
+    <CodeNext>43314205</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>47</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'i' of function 'RemovePlate' to memsize type.</Message>
+    <Project>RoomDesigner</Project>
+    <ShortFile>roomdesignerview.cpp</ShortFile>
+    <Line>295</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\roomdesigner\roomdesignerview.cpp</File>
+    <CodePrev>3659233622</CodePrev>
+    <CodeCurrent>43314205</CodeCurrent>
+    <CodeNext>2337</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>48</DefaultOrder>
+    <ErrorCode>V818</ErrorCode>
+    <Message>It is more efficient to use an initialization list 'position(p)' rather than an assignment operator.</Message>
+    <Project>libroom</Project>
+    <ShortFile>room.cpp</ShortFile>
+    <Line>21</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.cpp</File>
+    <CodePrev>125</CodePrev>
+    <CodeCurrent>361507470</CodeCurrent>
+    <CodeNext>85007</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>5</Analyzer>
+    <LineExtension>22</LineExtension>
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>49</DefaultOrder>
+    <ErrorCode>V818</ErrorCode>
+    <Message>It is more efficient to use an initialization list 'position(p)' rather than an assignment operator.</Message>
+    <Project>libroom</Project>
+    <ShortFile>room.cpp</ShortFile>
+    <Line>49</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.cpp</File>
+    <CodePrev>125</CodePrev>
+    <CodeCurrent>1881030217</CodeCurrent>
+    <CodeNext>85007</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>5</Analyzer>
+    <LineExtension>50</LineExtension>
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>50</DefaultOrder>
+    <ErrorCode>V128</ErrorCode>
+    <Message>The 'this-&gt;width' variable of the memsize type is written to a stream. Consider verifying the compatibility of 32 and 64 bit versions of the application in the context of a stored data.</Message>
+    <Project>libroom</Project>
+    <ShortFile>room.cpp</ShortFile>
+    <Line>128</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.cpp</File>
+    <CodePrev>24062525</CodePrev>
+    <CodeCurrent>3164201585</CodeCurrent>
+    <CodeNext>46065057</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>51</DefaultOrder>
+    <ErrorCode>V128</ErrorCode>
+    <Message>The 'this-&gt;height' variable of the memsize type is written to a stream. Consider verifying the compatibility of 32 and 64 bit versions of the application in the context of a stored data.</Message>
+    <Project>libroom</Project>
+    <ShortFile>room.cpp</ShortFile>
+    <Line>128</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.cpp</File>
+    <CodePrev>24062525</CodePrev>
+    <CodeCurrent>3164201585</CodeCurrent>
+    <CodeNext>46065057</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>52</DefaultOrder>
+    <ErrorCode>V128</ErrorCode>
+    <Message>The '_plates-&gt;size()' variable of the memsize type is written to a stream. Consider verifying the compatibility of 32 and 64 bit versions of the application in the context of a stored data.</Message>
+    <Project>libroom</Project>
+    <ShortFile>room.cpp</ShortFile>
+    <Line>129</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.cpp</File>
+    <CodePrev>3164201585</CodePrev>
+    <CodeCurrent>46065057</CodeCurrent>
+    <CodeNext>91531681</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>53</DefaultOrder>
+    <ErrorCode>V128</ErrorCode>
+    <Message>The '_baskets-&gt;size()' variable of the memsize type is written to a stream. Consider verifying the compatibility of 32 and 64 bit versions of the application in the context of a stored data.</Message>
+    <Project>libroom</Project>
+    <ShortFile>room.cpp</ShortFile>
+    <Line>130</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.cpp</File>
+    <CodePrev>46065057</CodePrev>
+    <CodeCurrent>91531681</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>54</DefaultOrder>
+    <ErrorCode>V128</ErrorCode>
+    <Message>The 'this-&gt;width' variable of the memsize type is read from a stream. Consider verifying the compatibility of 32 and 64 bit versions of the application in the context of a stored data.</Message>
+    <Project>libroom</Project>
+    <ShortFile>room.cpp</ShortFile>
+    <Line>134</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.cpp</File>
+    <CodePrev>1264996532</CodePrev>
+    <CodeCurrent>2761499249</CodeCurrent>
+    <CodeNext>695545</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>55</DefaultOrder>
+    <ErrorCode>V128</ErrorCode>
+    <Message>The 'this-&gt;height' variable of the memsize type is read from a stream. Consider verifying the compatibility of 32 and 64 bit versions of the application in the context of a stored data.</Message>
+    <Project>libroom</Project>
+    <ShortFile>room.cpp</ShortFile>
+    <Line>134</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.cpp</File>
+    <CodePrev>1264996532</CodePrev>
+    <CodeCurrent>2761499249</CodeCurrent>
+    <CodeNext>695545</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>56</DefaultOrder>
+    <ErrorCode>V128</ErrorCode>
+    <Message>The 'nr_plates' variable of the memsize type is read from a stream. Consider verifying the compatibility of 32 and 64 bit versions of the application in the context of a stored data.</Message>
+    <Project>libroom</Project>
+    <ShortFile>room.cpp</ShortFile>
+    <Line>135</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.cpp</File>
+    <CodePrev>2761499249</CodePrev>
+    <CodeCurrent>695545</CodeCurrent>
+    <CodeNext>7717737</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>57</DefaultOrder>
+    <ErrorCode>V128</ErrorCode>
+    <Message>The 'nr_baskets' variable of the memsize type is read from a stream. Consider verifying the compatibility of 32 and 64 bit versions of the application in the context of a stored data.</Message>
+    <Project>libroom</Project>
+    <ShortFile>room.cpp</ShortFile>
+    <Line>138</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libroom\room.cpp</File>
+    <CodePrev>2934328849</CodePrev>
+    <CodeCurrent>1388725</CodeCurrent>
+    <CodeNext>16341865</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>58</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>libicat%BattleCats%bcat%acat</Project>
+    <ShortFile>icat.h</ShortFile>
+    <Line>34</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.h</File>
+    <CodePrev>11273219</CodePrev>
+    <CodeCurrent>86624717</CodeCurrent>
+    <CodeNext>4262183407</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\bcat\bcat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\acat\acat.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>59</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>libicat%BattleCats%bcat%acat</Project>
+    <ShortFile>icat.h</ShortFile>
+    <Line>35</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.h</File>
+    <CodePrev>86624717</CodePrev>
+    <CodeCurrent>4262183407</CodeCurrent>
+    <CodeNext>3204837425</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\bcat\bcat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\acat\acat.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>60</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>libicat%BattleCats%bcat%acat</Project>
+    <ShortFile>icat.h</ShortFile>
+    <Line>36</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.h</File>
+    <CodePrev>4262183407</CodePrev>
+    <CodeCurrent>3204837425</CodeCurrent>
+    <CodeNext>169135</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\bcat\bcat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\acat\acat.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>61</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>libicat%BattleCats%bcat%acat</Project>
+    <ShortFile>icat.h</ShortFile>
+    <Line>37</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.h</File>
+    <CodePrev>3204837425</CodePrev>
+    <CodeCurrent>169135</CodeCurrent>
+    <CodeNext>193</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\bcat\bcat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\acat\acat.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>62</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>libicat%BattleCats%bcat%acat</Project>
+    <ShortFile>icat.h</ShortFile>
+    <Line>48</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.h</File>
+    <CodePrev>2589817278</CodePrev>
+    <CodeCurrent>65151</CodeCurrent>
+    <CodeNext>193</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\bcat\bcat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\acat\acat.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>63</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>libicat%BattleCats%bcat%acat</Project>
+    <ShortFile>icat.h</ShortFile>
+    <Line>98</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.h</File>
+    <CodePrev>806437</CodePrev>
+    <CodeCurrent>43022361</CodeCurrent>
+    <CodeNext>230373</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\bcat\bcat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\acat\acat.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>64</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>libicat%BattleCats%bcat%acat</Project>
+    <ShortFile>icat.h</ShortFile>
+    <Line>99</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.h</File>
+    <CodePrev>43022361</CodePrev>
+    <CodeCurrent>230373</CodeCurrent>
+    <CodeNext>5816</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\bcat\bcat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\acat\acat.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>65</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>libicat%BattleCats%bcat%acat</Project>
+    <ShortFile>icat.h</ShortFile>
+    <Line>114</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.h</File>
+    <CodePrev>3200343197</CodePrev>
+    <CodeCurrent>65151</CodeCurrent>
+    <CodeNext>2201760805</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\bcat\bcat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\acat\acat.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>66</DefaultOrder>
+    <ErrorCode>V122</ErrorCode>
+    <Message>Memsize type is used in the struct/class.</Message>
+    <Project>libicat%BattleCats%bcat%acat</Project>
+    <ShortFile>icat.h</ShortFile>
+    <Line>121</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.h</File>
+    <CodePrev>800084621</CodePrev>
+    <CodeCurrent>65151</CodeCurrent>
+    <CodeNext>565720101</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\bcat\bcat.cpp*d:\documents\visual studio 2017\projects\battlecats\roomdesigner\acat\acat.cpp</AnalyzedSourceFiles>
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>67</DefaultOrder>
+    <ErrorCode>V113</ErrorCode>
+    <Message>Implicit type conversion from memsize to double type or vice versa.</Message>
+    <Project>libicat</Project>
+    <ShortFile>icat.cpp</ShortFile>
+    <Line>44</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\libicat\icat.cpp</File>
+    <CodePrev>342359393</CodePrev>
+    <CodeCurrent>3478176880</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>68</DefaultOrder>
+    <ErrorCode>V112</ErrorCode>
+    <Message>Dangerous magic number 4 used: ...ileSettings(4);...</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecats.cpp</ShortFile>
+    <Line>96</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecats.cpp</File>
+    <CodePrev>1729599762</CodePrev>
+    <CodeCurrent>1266926195</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>69</DefaultOrder>
+    <ErrorCode>V668</ErrorCode>
+    <Message>There is no sense in testing the 'pDocTemplate' pointer against null, as the memory was allocated using the 'new' operator. The exception will be generated in the case of memory allocation error.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecats.cpp</ShortFile>
+    <Line>107</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecats.cpp</File>
+    <CodePrev>1414231606</CodePrev>
+    <CodeCurrent>5246267</CodeCurrent>
+    <CodeNext>177357</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>4</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>70</DefaultOrder>
+    <ErrorCode>V576</ErrorCode>
+    <Message>Incorrect format. Consider checking the second actual argument of the 'Format' function. The SIGNED integer type argument is expected.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>83</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>86428996</CodePrev>
+    <CodeCurrent>3166724062</CodeCurrent>
+    <CodeNext>3873456181</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>4</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>71</DefaultOrder>
+    <ErrorCode>V111</ErrorCode>
+    <Message>Call of function 'Format' with variable number of arguments. Second argument has memsize type.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>83</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>86428996</CodePrev>
+    <CodeCurrent>3166724062</CodeCurrent>
+    <CodeNext>3873456181</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>72</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'iw' to memsize type in an arithmetic expression: iw * room.width</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>84</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>3166724062</CodePrev>
+    <CodeCurrent>3873456181</CodeCurrent>
+    <CodeNext>3107080646</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>73</DefaultOrder>
+    <ErrorCode>V107</ErrorCode>
+    <Message>Implicit type conversion first argument 'iw * room.width + 10 + X_SHIFT' of function 'TextOutW' to 32-bit type.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>84</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>3166724062</CodePrev>
+    <CodeCurrent>3873456181</CodeCurrent>
+    <CodeNext>3107080646</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>74</DefaultOrder>
+    <ErrorCode>V576</ErrorCode>
+    <Message>Incorrect format. Consider checking the second actual argument of the 'Format' function. The SIGNED integer type argument is expected.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>85</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>3873456181</CodePrev>
+    <CodeCurrent>3107080646</CodeCurrent>
+    <CodeNext>3873456693</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>4</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>75</DefaultOrder>
+    <ErrorCode>V111</ErrorCode>
+    <Message>Call of function 'Format' with variable number of arguments. Second argument has memsize type.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>85</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>3873456181</CodePrev>
+    <CodeCurrent>3107080646</CodeCurrent>
+    <CodeNext>3873456693</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>76</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'iw' to memsize type in an arithmetic expression: iw * room.width</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>86</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>3107080646</CodePrev>
+    <CodeCurrent>3873456693</CodeCurrent>
+    <CodeNext>4147340567</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>77</DefaultOrder>
+    <ErrorCode>V107</ErrorCode>
+    <Message>Implicit type conversion first argument 'iw * room.width + 10 + X_SHIFT' of function 'TextOutW' to 32-bit type.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>86</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>3107080646</CodePrev>
+    <CodeCurrent>3873456693</CodeCurrent>
+    <CodeNext>4147340567</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>78</DefaultOrder>
+    <ErrorCode>V576</ErrorCode>
+    <Message>Incorrect format. Consider checking the second actual argument of the 'Format' function. The SIGNED integer type argument is expected.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>87</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>3873456693</CodePrev>
+    <CodeCurrent>4147340567</CodeCurrent>
+    <CodeNext>3873457205</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>4</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>79</DefaultOrder>
+    <ErrorCode>V111</ErrorCode>
+    <Message>Call of function 'Format' with variable number of arguments. Second argument has memsize type.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>87</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>3873456693</CodePrev>
+    <CodeCurrent>4147340567</CodeCurrent>
+    <CodeNext>3873457205</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>80</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'iw' to memsize type in an arithmetic expression: iw * room.width</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>88</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>4147340567</CodePrev>
+    <CodeCurrent>3873457205</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>81</DefaultOrder>
+    <ErrorCode>V107</ErrorCode>
+    <Message>Implicit type conversion first argument 'iw * room.width + 10 + X_SHIFT' of function 'TextOutW' to 32-bit type.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>88</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>4147340567</CodePrev>
+    <CodeCurrent>3873457205</CodeCurrent>
+    <CodeNext>0</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>82</DefaultOrder>
+    <ErrorCode>V576</ErrorCode>
+    <Message>Incorrect format. Consider checking the second actual argument of the 'Format' function. The SIGNED integer type argument is expected.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>92</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>374001</CodePrev>
+    <CodeCurrent>4181165727</CodeCurrent>
+    <CodeNext>11015157</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>4</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>3</Level>
+    <DefaultOrder>83</DefaultOrder>
+    <ErrorCode>V576</ErrorCode>
+    <Message>Incorrect format. Consider checking the second actual argument of the 'Format' function. The SIGNED integer type argument is expected.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>98</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>86631</CodePrev>
+    <CodeCurrent>1922975916</CodeCurrent>
+    <CodeNext>31348519</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>4</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>84</DefaultOrder>
+    <ErrorCode>V111</ErrorCode>
+    <Message>Call of function 'Format' with variable number of arguments. Second argument has memsize type.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>98</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>86631</CodePrev>
+    <CodeCurrent>1922975916</CodeCurrent>
+    <CodeNext>31348519</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>85</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'j' to memsize type in an arithmetic expression: j != room.cats()-&gt;size()</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>100</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>31348519</CodePrev>
+    <CodeCurrent>220050485</CodeCurrent>
+    <CodeNext>256187</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>86</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'j' of function 'at' to memsize type.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>102</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>256187</CodePrev>
+    <CodeCurrent>2398317371</CodeCurrent>
+    <CodeNext>1008984673</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>87</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of '30 + 20 * j' to memsize type in an arithmetic expression: 30 + 20 * j + Y_SHIFT</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>104</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>1008984673</CodePrev>
+    <CodeCurrent>982009449</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>88</DefaultOrder>
+    <ErrorCode>V107</ErrorCode>
+    <Message>Implicit type conversion second argument '30 + 20 * j + Y_SHIFT' of function 'TextOutW' to 32-bit type.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>104</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>1008984673</CodePrev>
+    <CodeCurrent>982009449</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>89</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'j' to memsize type in an arithmetic expression: j != room.height</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>111</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>436116</CodePrev>
+    <CodeCurrent>2081246475</CodeCurrent>
+    <CodeNext>1053478660</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>90</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'i' to memsize type in an arithmetic expression: i != room.width</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>112</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>2081246475</CodePrev>
+    <CodeCurrent>1053478660</CodeCurrent>
+    <CodeNext>4261071632</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>91</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'j * iw' to memsize type in an arithmetic expression: j * iw + X_SHIFT</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>113</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>1053478660</CodePrev>
+    <CodeCurrent>4261071632</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>92</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'i * ih' to memsize type in an arithmetic expression: i * ih + Y_SHIFT</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>113</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>1053478660</CodePrev>
+    <CodeCurrent>4261071632</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>93</DefaultOrder>
+    <ErrorCode>V107</ErrorCode>
+    <Message>Implicit type conversion second argument 'j * iw + X_SHIFT' of function 'Draw' to 32-bit type.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>113</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>1053478660</CodePrev>
+    <CodeCurrent>4261071632</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>94</DefaultOrder>
+    <ErrorCode>V107</ErrorCode>
+    <Message>Implicit type conversion third argument 'i * ih + Y_SHIFT' of function 'Draw' to 32-bit type.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>113</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>1053478660</CodePrev>
+    <CodeCurrent>4261071632</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>95</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'j' to memsize type in an arithmetic expression: j != room.cats()-&gt;size()</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>117</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>22231</CodePrev>
+    <CodeCurrent>220050485</CodeCurrent>
+    <CodeNext>299885288</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>96</DefaultOrder>
+    <ErrorCode>V106</ErrorCode>
+    <Message>Implicit type conversion first argument 'j' of function 'at' to memsize type.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>118</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>220050485</CodePrev>
+    <CodeCurrent>299885288</CodeCurrent>
+    <CodeNext>801874947</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>97</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'aux.col * iw' to memsize type in an arithmetic expression: aux.col * iw + X_SHIFT</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>119</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>299885288</CodePrev>
+    <CodeCurrent>801874947</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>98</DefaultOrder>
+    <ErrorCode>V104</ErrorCode>
+    <Message>Implicit conversion of 'aux.row * ih' to memsize type in an arithmetic expression: aux.row * ih + Y_SHIFT</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>119</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>299885288</CodePrev>
+    <CodeCurrent>801874947</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>99</DefaultOrder>
+    <ErrorCode>V107</ErrorCode>
+    <Message>Implicit type conversion second argument 'aux.col * iw + X_SHIFT' of function 'Draw' to 32-bit type.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>119</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>299885288</CodePrev>
+    <CodeCurrent>801874947</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>100</DefaultOrder>
+    <ErrorCode>V107</ErrorCode>
+    <Message>Implicit type conversion third argument 'aux.row * ih + Y_SHIFT' of function 'Draw' to 32-bit type.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>119</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>299885288</CodePrev>
+    <CodeCurrent>801874947</CodeCurrent>
+    <CodeNext>125</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>1</Analyzer>
+    <LineExtension />
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+  <PVS-Studio_Analysis_Log>
+    <FavIcon>false</FavIcon>
+    <Level>2</Level>
+    <DefaultOrder>101</DefaultOrder>
+    <ErrorCode>V807</ErrorCode>
+    <Message>Decreased performance. Consider creating a pointer to avoid using the 'room.cats()' expression repeatedly.</Message>
+    <Project>BattleCats</Project>
+    <ShortFile>battlecatsview.cpp</ShortFile>
+    <Line>87</Line>
+    <FalseAlarm>false</FalseAlarm>
+    <File>d:\documents\visual studio 2017\projects\battlecats\roomdesigner\battlecats\battlecatsview.cpp</File>
+    <CodePrev>3873456693</CodePrev>
+    <CodeCurrent>4147340567</CodeCurrent>
+    <CodeNext>3873457205</CodeNext>
+    <TrialMessage>false</TrialMessage>
+    <Analyzer>5</Analyzer>
+    <LineExtension>87,98,100,102,117,118</LineExtension>
+    <Retired>false</Retired>
+    <AnalyzedSourceFiles />
+  </PVS-Studio_Analysis_Log>
+</NewDataSet>

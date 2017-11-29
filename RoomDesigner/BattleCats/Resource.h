@@ -12,13 +12,16 @@
 #define ID_OPTIONS_LOADCATS             32772
 #define ID_OPTIONS_SETCATS              32773
 #define ID_OPTIONS_START                32774
+#define ID_GAME_RUN                     32775
+#define ID_GAME_PAUSE                   32776
+#define ID_GAME_OPTIONS                 32777
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        312
-#define _APS_NEXT_COMMAND_VALUE         32775
+#define _APS_NEXT_COMMAND_VALUE         32778
 #define _APS_NEXT_CONTROL_VALUE         1001
 #define _APS_NEXT_SYMED_VALUE           310
 #endif

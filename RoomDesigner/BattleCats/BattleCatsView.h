@@ -17,6 +17,7 @@ public:
 	CImage sprite[5];
 	UINT stage;
 	CString message;
+	bool isPaused;
 
 // Operations
 public:
@@ -44,7 +45,6 @@ protected:
 protected:
 	DECLARE_MESSAGE_MAP()
 public:
-	void LoadCats();
 	void SetCats();
 	afx_msg void OnOptionsLoadcats();
 	afx_msg void OnOptionsStart();

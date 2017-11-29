@@ -73,7 +73,7 @@ GoToSleepAction::GoToSleepAction(ICat* cat) : ComposedAction(cat) {
 	// sleep
 	size_t sleep_speed = cat->getConfig().sleep_speed;
 	size_t fishInStomach = cat->fishInStomach();
-	size_t fishLeft = fishInStomach / sleep_speed + (fishInStomach % sleep_speed != 0) ? 1 : 0;
+	size_t fishLeft = fishInStomach / sleep_speed + ((fishInStomach % sleep_speed != 0) ? 1 : 0);
 
 	while (fishLeft--) {
 		this->push_back(new SleepAction(cat));
@@ -88,6 +88,7 @@ const IRoom * ICat::getRoom() const
 ICat::ICat(const CatConfig& cfg, IRoom* room) {
 	_cfg = cfg;
 	_room = room;
+	_eated_fishes = 0;
 	position = _room->baskets()->front()->position;
 }
 ICat::~ICat() {};

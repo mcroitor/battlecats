@@ -107,6 +107,21 @@ void CRoomDesignerView::OnDraw(CDC* pDC)
 		}
 	}
 
+	CString info;
+	info.Format(L"room size: (%d, %d)", room.width, room.height);
+	pDC->TextOutW(iw*room.width + 10, 10, info);
+	info.Format(L"plates total: %d", room.plates()->size());
+	pDC->TextOutW(iw*room.width + 10, 30, info);
+	info.Format(L"baskets total: %d", room.baskets()->size());
+	pDC->TextOutW(iw*room.width + 10, 50, info);
+
+	// debug
+	int index = 0;
+	for (plates_iterator it = room.plates()->begin(); it != room.plates()->end(); ++it) {
+		info.Format(L"plate[ %d ]: (%d, %d)", index, (*it)->position.col, (*it)->position.row);
+		pDC->TextOutW(iw*room.width + 10, 100 + 20*index, info);
+		++index;
+	}
 	//pDC->BitBlt(0, 0, iw*room.width, ih*room.height, &dc, 0, 0, SRCCOPY);
 }
 

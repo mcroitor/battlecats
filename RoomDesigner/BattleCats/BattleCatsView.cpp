@@ -48,6 +48,7 @@ CBattleCatsView::CBattleCatsView()
 	sprite[BASKET].Load(L"images32/bed32.png");
 	sprite[CAT].Load(L"images32/cat32.png");
 	stage = 0;
+	isPaused = false;
 }
 
 CBattleCatsView::~CBattleCatsView()
@@ -78,6 +79,14 @@ void CBattleCatsView::OnDraw(CDC* pDC)
 	CDC dc;
 	CString text;
 	dc.CreateCompatibleDC(pDC);
+	// common info about room:
+	text.Format(L"plates: %d", room.plates()->size());
+	pDC->TextOutW(iw*room.width + 10 + X_SHIFT, 10, text);
+	text.Format(L"baskets: %d", room.baskets()->size());
+	pDC->TextOutW(iw*room.width + 10 + X_SHIFT, 30, text);
+	text.Format(L"cats: %d", room.cats()->size());
+	pDC->TextOutW(iw*room.width + 10 + X_SHIFT, 50, text);
+
 
 	if (stage != 0) {
 		text.Format(L"Stage %d", stage);
@@ -96,17 +105,14 @@ void CBattleCatsView::OnDraw(CDC* pDC)
 	}
 
 	text.Format(L"Score:");
-	pDC->TextOutW(200, 10 + Y_SHIFT, text);
-	// draw room here	
+	pDC->TextOutW(190, 10 + Y_SHIFT, text);
+	// draw room here
+	// 1. background
 	for (j = 0; j != room.height; ++j) {
 		for (i = 0; i != room.width; ++i) {
 			sprite[room.at(j, i)].Draw(*pDC, j * iw + X_SHIFT, i * ih + Y_SHIFT, iw, ih);
-
 		}
 	}
-
-
-
 	// draw cats
 	for (j = 0; j != room.cats()->size(); ++j) {
 		coord& aux = room.cats()->at(j)->position;
@@ -156,62 +162,11 @@ CBattleCatsDoc* CBattleCatsView::GetDocument() const // non-debug version is inl
 
 // CBattleCatsView message handlers
 
-void CBattleCatsView::LoadCats()
-{
-	typedef ICat* (*createCatFunc)(IRoom* /*room*/);
-	CRoom& room = GetDocument()->room;
-	room.RemoveCats();
-	//room.AddCat();
-	WIN32_FIND_DATA ffd;
-	TCHAR szDir[MAX_PATH];
-	HANDLE hFind = INVALID_HANDLE_VALUE;
-	DWORD dwError = 0;
-
-	StringCchCopy(szDir, MAX_PATH, L".\\cats\\*");
-	hFind = FindFirstFile(szDir, &ffd);
-
-	if (INVALID_HANDLE_VALUE == hFind)
-	{
-		MessageBox(TEXT("FindFirstFile"));
-		return;
-	}
-
-	// List all the files in the directory with some info about them.
-	do
-	{
-		if (ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
-		{
-			// _tprintf(TEXT("  %s   <DIR>\n"), ffd.cFileName);
-		}
-		else
-		{
-			HMODULE handle = LoadLibrary(ffd.cFileName);
-			if (handle != NULL) {
-				createCatFunc createCat = (createCatFunc)GetProcAddress(handle, "createCat");
-				// TODO ##: check, if function exists
-				ICat* cat = createCat((IRoom*)&room);
-				// TODO ##: check, cats owner is not freak
-				room.AddCat(cat);
-				//MessageBox(CString(cat->getConfig().name.c_str()));
-			}
-		}
-	} while (FindNextFile(hFind, &ffd) != 0);
-
-	dwError = GetLastError();
-	if (dwError != ERROR_NO_MORE_FILES)
-	{
-		MessageBox(TEXT("No cats found"));
-	}
-
-	FindClose(hFind);
-	RedrawWindow();
-}
-
-
 void CBattleCatsView::OnOptionsLoadcats()
 {
 	// TODO: Add your command handler code here
-	LoadCats();
+	this->GetDocument()->LoadCats();
+	RedrawWindow();
 }
 
 void CBattleCatsView::SetCats() {
@@ -222,12 +177,25 @@ void CBattleCatsView::SetCats() {
 void CBattleCatsView::OnOptionsStart()
 {
 	// TODO: Add your command handler code here
+	CRoom& room = GetDocument()->room;
+	if (room.baskets()->size() == 0) {
+		MessageBox(L"Cant start game no baskets found", L"Oops Message", MB_ICONWARNING);
+		return;
+	}
+	if (room.cats()->size() == 0) {
+		MessageBox(L"Cant start game no cats found", L"Oops Message", MB_ICONWARNING);
+		return;
+	}
+	if (room.plates()->size() == 0) {
+		MessageBox(L"Cant start game no plates found", L"Oops Message", MB_ICONWARNING);
+		return;
+	}
 	CStartDlg dlg;
 
 	if (dlg.DoModal() == IDOK) {
 		UINT it = dlg.nr_it;
-		CRoom& room = GetDocument()->room;
-		cats_type cats = new std::deque<ICat*>(room.cats()->begin(), room.cats()->end());
+		//room = GetDocument()->room;
+		cats_type cats = room.cats();
 		actions_type actions;
 		actions.resize(cats->size(), nullptr);
 
@@ -235,14 +203,14 @@ void CBattleCatsView::OnOptionsStart()
 			++stage;
 
 			for (size_t j = 0; j != cats->size(); ++j) {
-				message.Format(L"cat %hs do action", (*cats)[j]->getConfig().name.c_str());
 				IAction* tmp = (*cats)[j]->Next(actions[j]);
 				if (tmp != nullptr) {
 					actions[j] = tmp;
 				}
+				message.Format(L"cat %hs does action %d", (*cats)[j]->getConfig().name.c_str(), actions[j]->type());
 				actions[j]->doAction();
-				if (!(actions[j]->type() == ACTION_T::COMPOSED && 
-					( ((ComposedAction*)actions[j])->actions().size() != 0))) {
+				if (actions[j]->type() != ACTION_T::COMPOSED || 
+					( ((ComposedAction*)actions[j])->actions().size() == 0)) {
 					actions[j] = nullptr;
 				}
 				//message.Format(L"cat %s do action", CString((*cats)[j]->getConfig().name.c_str()));

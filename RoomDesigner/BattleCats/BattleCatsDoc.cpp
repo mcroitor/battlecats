@@ -31,6 +31,8 @@ END_MESSAGE_MAP()
 CBattleCatsDoc::CBattleCatsDoc()
 {
 	// TODO: add one-time construction code here
+	room = CRoom(10, 10);
+	room.AddBasket(new CBasket(coord(0, 0)));
 
 }
 
@@ -45,7 +47,8 @@ BOOL CBattleCatsDoc::OnNewDocument()
 
 	// TODO: add reinitialization code here
 	// (SDI documents will reuse this document)
-
+	room = CRoom(10, 10);
+	room.AddBasket(new CBasket(coord(0, 0)));
 	return TRUE;
 }
 
@@ -69,6 +72,15 @@ void CBattleCatsDoc::Serialize(CArchive& ar)
 }
 
 void CBattleCatsDoc::LoadCats() {
+	// cant load cats if baskets does not exists.
+	if (room.baskets()->size() == 0) {
+		MessageBox(NULL, L"Cant load cats: no baskets for them", L"Oops Message", MB_ICONWARNING);
+		return;
+	}
+	//remove cats if exists
+	room.cats()->clear();
+
+	// load cats dll
 	CString pattern = L"./cats/*.dll";
 	WIN32_FIND_DATA findData;
 	HANDLE hFind = FindFirstFile(pattern, &findData);
@@ -76,7 +88,6 @@ void CBattleCatsDoc::LoadCats() {
 	{
 		return;
 	}
-	// List all the files in the directory with some info about them.
 
 	do
 	{
